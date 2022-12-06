@@ -1,0 +1,72 @@
+---
+title: "Threats to Validity"
+---
+
+
+**Feel free to remove any/all of the placeholder text and instructions here!**
+
+# Conditional cash transfers and education in Mexico
+
+## Internal validity
+
+1.  **Selection**: 1
+2.  **Attrition**: 0
+3.  **Maturation**: 1
+4.  **Secular trends**: 1
+5.  **Seasonality**: NA
+6.  **Testing**: NA
+7.  **Regression to the mean**: 1
+8.  **Measurement error**: 0
+9.  **Time frame of study**: 0
+10. **Hawthorne effects**: 0
+11. **John Henry effects**: 0
+12. **Spillovers**: 1
+13. **Intervening events**: 0
+
+Final score: 5
+
+## General Summary:
+
+Schultz Study was designed to measure the Progresa program's effect on underprivileged children's school enrollment and inequality. The study used a difference-and-difference model to estimate the treatment effect. The selection process randomly finds economically and geographically disadvantaged families from Mexico's lower-class population. The participants (treatment group) are offered education subsidies for children in grades 1st through 9th. The enrollment status is then compared to non-participants (control) in the lower class population. The study results found that Progresa students have a higher trending enrollment rate than the control and a significantly higher enrollment rate in the 6th grade. Additionally, the program decrease inequality.
+
+## External validity
+
+There are no blatant offenses to external validity in this study. However, if the intended use of this study is for America or other countries besides Mexico, then it may not generalize well. Mexico's noneducational rate is significantly higher than the U.S., so that the study may have less impact on more modern countries. Other differences, such as existing policies between countries, can also affect external validity. Additionally, the study uses survey data for the control group, which may not accurately represent the population.
+
+## Construct validity
+
+The study uses the difference-and-difference model combined with random selection, which should eliminate back door bias. The control group is in a different area than the participants, so the spillover effect should be minimal. However, the study does mention that the enrollment variable is subject to endogeneity. Child labor supply is an unobserved factor that is correlated with school enrollment. If child labor is left in the error term, the model could be biased. The study uses an IV to reduce bias, but admittedly bias is hard to diminish completely. Another threat to internal validity is that the Hawthorne Progresa participants are incentivized to produce good results for the study, so they keep getting subsidies.
+
+# *Sesame Street* and school readiness
+
+## Internal validity
+
+1.  **Selection**: 1
+2.  **Attrition**:
+3.  **Maturation**: 1
+4.  **Secular trends**: 1\
+5.  **Seasonality**:\
+6.  **Testing**:
+7.  **Regression to the mean**:
+8.  **Measurement error**: 0
+9.  **Time frame of study**: 1
+10. **Hawthorne effects**: 1
+11. **John Henry effects**: 1
+12. **Spillovers**: 0
+13. **Intervening events**: 1
+
+Final score: 7
+
+## General Summary:
+
+This study examines the effect of *Sesame Street* on educational outcomes. In 1969 *Sesame Street* became the first large-scale educational T.V show broadcast to the country. However, households that were out of range of broadcasting towers could not view it. The present student exploits this by creating an interaction variable for children within a broadcasting area who were in preschool during *Sesame Street's* premiere. While controlling for time variants, the study found that *Sesame Street* significantly increases educational advantage.
+
+## External validity
+
+The study mentions that the primary interaction variable does not measure the average treatment effect. Instead, it identifies the relationship between the intent-to-treat and education outcome. This measurement care can lead to bias in the model.
+
+## Construct validity
+
+This study accounted for several threats to construct validity. The analysis accounts for selection bias by arguing that broadcasting tower placement is unrelated to whether a child has access to *Sesame Street*. However, the study does not account for family mobility. Subjects that move out of a treatment county and into a control county or vice versa create bias in the model. Besides mobility, there may be inter-group mingling among children. This could create a spillover effect, in which treatment children influence control children's behavior.
+
+To account for variations in time, the study's model uses time-fixed-effects. However, the fixed effect may not fully account for policy changes. The study mentions that it uses a dummy variable for years after the Food Stamp Act of 1964 but makes no attempt to account for Medicaid in 1967.

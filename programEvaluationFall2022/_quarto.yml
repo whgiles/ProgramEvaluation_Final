@@ -1,0 +1,30 @@
+project:
+  type: website
+
+website:
+  title: "Medicaid Final Project"
+  navbar:
+    left:
+      - file: src/writeup/background-and-theory.qmd
+        text: "Write-Up"
+  sidebar: 
+    - title: "Write-Up"
+      contents: 
+        - text: "Introduction/Overview"
+          file: src/writeup/background-and-theory.qmd
+        - text: "Program Theory and Implementation"
+          file: src/writeup/measurement.qmd
+        - text: "Outcome and Causation"
+          file: src/writeup/causal-model.qmd
+        - text: "Data and Methods"
+          file: src/writeup/threats-to-validity.qmd
+
+        
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+

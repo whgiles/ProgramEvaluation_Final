@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Medicaid Final Project - Measurement</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Medicaid Final Project</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../src/writeup/index.html">Write-Up</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Measurement</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/background-and-theory.html" class="sidebar-item-text sidebar-link">Introduction/Overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/measurement.html" class="sidebar-item-text sidebar-link active">Program Theory and Implementation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/causal-model.html" class="sidebar-item-text sidebar-link">Outcome and Causation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/threats-to-validity.html" class="sidebar-item-text sidebar-link">Data and Methods</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#measurement-and-abstraction-for-full-day-kindergarten" id="toc-measurement-and-abstraction-for-full-day-kindergarten" class="nav-link active" data-scroll-target="#measurement-and-abstraction-for-full-day-kindergarten">1: Measurement and abstraction for full-day kindergarten</a>
+  <ul class="collapse">
+  <li><a href="#possible-outcomes" id="toc-possible-outcomes" class="nav-link" data-scroll-target="#possible-outcomes">Possible outcomes</a></li>
+  <li><a href="#outcome-1-better-achievements" id="toc-outcome-1-better-achievements" class="nav-link" data-scroll-target="#outcome-1-better-achievements">Outcome 1: Better Achievements</a>
+  <ul class="collapse">
+  <li><a href="#attribute-1-course-grade" id="toc-attribute-1-course-grade" class="nav-link" data-scroll-target="#attribute-1-course-grade">Attribute 1: Course Grade</a></li>
+  <li><a href="#attribute-2-repeating-grades" id="toc-attribute-2-repeating-grades" class="nav-link" data-scroll-target="#attribute-2-repeating-grades">Attribute 2: Repeating Grades</a></li>
+  <li><a href="#attribute-3-number-of-extracurricular-activities" id="toc-attribute-3-number-of-extracurricular-activities" class="nav-link" data-scroll-target="#attribute-3-number-of-extracurricular-activities">Attribute 3: Number of Extracurricular Activities</a></li>
+  </ul></li>
+  <li><a href="#outcome-2-intellectual-advantage" id="toc-outcome-2-intellectual-advantage" class="nav-link" data-scroll-target="#outcome-2-intellectual-advantage">Outcome 2: Intellectual Advantage</a>
+  <ul class="collapse">
+  <li><a href="#attribute-1-standardized-test-scores" id="toc-attribute-1-standardized-test-scores" class="nav-link" data-scroll-target="#attribute-1-standardized-test-scores">Attribute 1: Standardized Test Scores</a></li>
+  <li><a href="#attribute-2-advanced-courses" id="toc-attribute-2-advanced-courses" class="nav-link" data-scroll-target="#attribute-2-advanced-courses">Attribute 2: Advanced Courses</a></li>
+  <li><a href="#attribute-3-gpa-and-advanced-courses" id="toc-attribute-3-gpa-and-advanced-courses" class="nav-link" data-scroll-target="#attribute-3-gpa-and-advanced-courses">Attribute 3: GPA and advanced courses</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#measurement-and-abstraction-for-aca-medicaid-expansion" id="toc-measurement-and-abstraction-for-aca-medicaid-expansion" class="nav-link" data-scroll-target="#measurement-and-abstraction-for-aca-medicaid-expansion">2: Measurement and abstraction for ACA Medicaid Expansion</a>
+  <ul class="collapse">
+  <li><a href="#possible-outcomes-1" id="toc-possible-outcomes-1" class="nav-link" data-scroll-target="#possible-outcomes-1">Possible outcomes</a></li>
+  <li><a href="#outcome-1-health" id="toc-outcome-1-health" class="nav-link" data-scroll-target="#outcome-1-health">Outcome 1: Health</a>
+  <ul class="collapse">
+  <li><a href="#attribute-1-sickness" id="toc-attribute-1-sickness" class="nav-link" data-scroll-target="#attribute-1-sickness">Attribute 1: Sickness</a></li>
+  <li><a href="#attribute-2-disability" id="toc-attribute-2-disability" class="nav-link" data-scroll-target="#attribute-2-disability">Attribute 2: Disability</a></li>
+  <li><a href="#attribute-3-physical-activity" id="toc-attribute-3-physical-activity" class="nav-link" data-scroll-target="#attribute-3-physical-activity">Attribute 3: Physical Activity</a></li>
+  </ul></li>
+  <li><a href="#outcome-2-healthcare-access" id="toc-outcome-2-healthcare-access" class="nav-link" data-scroll-target="#outcome-2-healthcare-access">Outcome 2: Healthcare Access</a>
+  <ul class="collapse">
+  <li><a href="#attribute-1-uninsurance-rate" id="toc-attribute-1-uninsurance-rate" class="nav-link" data-scroll-target="#attribute-1-uninsurance-rate">Attribute 1: Uninsurance Rate</a></li>
+  <li><a href="#attribute-2-healthcare-utilization" id="toc-attribute-2-healthcare-utilization" class="nav-link" data-scroll-target="#attribute-2-healthcare-utilization">Attribute 2: Healthcare Utilization</a></li>
+  <li><a href="#attribute-3-healthcare-supply" id="toc-attribute-3-healthcare-supply" class="nav-link" data-scroll-target="#attribute-3-healthcare-supply">Attribute 3: Healthcare Supply</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Measurement</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Feel free to remove any/all of the placeholder text and instructions here!</strong></p>
+<section id="measurement-and-abstraction-for-full-day-kindergarten" class="level1">
+<h1>1: Measurement and abstraction for full-day kindergarten</h1>
+<p>Article about half-day vs.&nbsp;full-day kindergarten in Utah:&nbsp;<a href="https://archive.sltrib.com/story.php?ref=/news/ci_13164697" class="uri">https://archive.sltrib.com/story.php?ref=/news/ci_13164697</a>. The article is 10 years old, and half-day kindergarten still remains standard practice in most Utah school districts.</p>
+<section id="possible-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="possible-outcomes">Possible outcomes</h2>
+<ul>
+<li><p>Better Achievements</p></li>
+<li><p>Intellectual Advantage</p></li>
+</ul>
+</section>
+<section id="outcome-1-better-achievements" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-1-better-achievements">Outcome 1: Better Achievements</h2>
+<p>List of all the possible attributes of the outcome:</p>
+<ul>
+<li><p>High Course Grades</p></li>
+<li><p>Less Repeating Grades</p></li>
+<li><p>More Extracurricular Activities</p></li>
+</ul>
+<p>Better Achievements is hard to measure because of its inherit ambiguity, so three measurable proxy variables are suggested. Course grades and the number of repeating grades both measure academic achievement. If the full-day kindergarten program succeeds, then a student who had full days of kindergarten will, on average, have higher grades and fewer repeating grades than an average student with half-day kindergarten. Additionally, we can measure the effects across time if multiple years are available.</p>
+<p>The number of extracurricular activities measures outside school achievement. While some activities are more time-consuming than others, the number of activities should generally indicate a student’s success.</p>
+<section id="attribute-1-course-grade" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-1-course-grade">Attribute 1: Course Grade</h3>
+<ul>
+<li><p>Measurable definition: The GPA of a student in a given year.</p></li>
+<li><p>Ideal measurement: The GPA of a randomly selected student in a given year for all years K-12.</p></li>
+<li><p>Feasible measurement: The average GPA for self-selecting schools/counties in a given year for all years available.</p></li>
+<li><p>Measurement of program effect: The difference in average GPA during a given year between schools/counties with full-day and half-day kindergarten. This data is collected across multiple years, both before and after the full-day kindergarten program start date. A difference-and-difference model can measure the effect of being a full-day kindergarten school/county after the program has been implemented.</p></li>
+</ul>
+</section>
+<section id="attribute-2-repeating-grades" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-2-repeating-grades">Attribute 2: Repeating Grades</h3>
+<ul>
+<li><p>Measurable definition: The number of grades repeated for a student in grades K-12.</p></li>
+<li><p>Ideal measurement: A boolean equal to 1 if a randomly selected student repeated a grade in a given year and equal to 0 if not.</p></li>
+<li><p>Feasible measurement: The percent of students in a school/county that had to repeat a grade in a given year.</p></li>
+<li><p>Measurement of program effect: The difference in the percent of students that had to repeat a grade between self-selecting schools with full-day and half-day kindergarten during a given year. The difference measures for multiple years before and after the full-day kindergarten program start date. The difference is compared across all available years.</p></li>
+</ul>
+</section>
+<section id="attribute-3-number-of-extracurricular-activities" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-3-number-of-extracurricular-activities">Attribute 3: Number of Extracurricular Activities</h3>
+<ul>
+<li><p>Measurable definition: The total number of extracurricular activities per student in one year.</p></li>
+<li><p>Ideal measurement: The total number of extracurricular activities from a randomly selected student per year for 12 years.</p></li>
+<li><p>Feasible measurement: The percent of students in a particular school/county participating in an extracurricular activity in a given year for less than 12 years.</p></li>
+<li><p>Measurement of program effect: The difference in percent number of students with at least one extracurricular activity between schools/counties with full-day and half-day kindergarten, and the differences across time.</p></li>
+</ul>
+</section>
+</section>
+<section id="outcome-2-intellectual-advantage" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-2-intellectual-advantage">Outcome 2: Intellectual Advantage</h2>
+<p>List of all the possible attributes of the outcome:</p>
+<ul>
+<li><p>Standardized Test Scores</p></li>
+<li><p>Advanced Courses</p></li>
+<li><p>GPA and Advanced Courses</p></li>
+</ul>
+<p>Because intellectual advantage mediates achievement, there are many overlapping characteristics, one of which is GPA. A person with more intellectual power can obtain a higher GPA than someone with less. However, if a person has a high GPA and takes advanced courses, this is perhaps a better measure of intellectual advantage. Standardized tests are also designed to separate the intellectual from the non-intellectual.</p>
+<section id="attribute-1-standardized-test-scores" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-1-standardized-test-scores">Attribute 1: Standardized Test Scores</h3>
+<ul>
+<li><p>Measurable definition: A student’s score on a particular standardized test.</p></li>
+<li><p>Ideal measurement: A randomly selected student’s test score on a particular test during a given year.</p></li>
+<li><p>Feasible measurement: The average standardized test score of a school/county during a given year.</p></li>
+<li><p>Measurement of program effect: The difference in standardized test scores between schools/counties with full-day and half-day kindergarten during a given year. The difference is calculated across all available years, both before and after the full-day kindergarten program is implemented. The program effect is the average difference between the full-day and half-day kindergarten schools after the program was implemented.</p></li>
+</ul>
+</section>
+<section id="attribute-2-advanced-courses" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-2-advanced-courses">Attribute 2: Advanced Courses</h3>
+<ul>
+<li><p>Measurable definition: The number of advanced courses (TAG, AP, etc.) a student is enrolled in during a given year.</p></li>
+<li><p>Ideal measurement: The number of advanced courses a randomly selected student is enrolled in during a given year for all years K-12.</p></li>
+<li><p>Feasible measurement: The percent of students enrolled in advanced courses offered by a school/county in a given year.</p></li>
+<li><p>Measurement of program effect: The difference in percent advanced between schools/counties in a given year. This difference is measured across multiple years, if possible, and compared. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts minus the difference between full-day and half-day kindergarten schools/counties before the program starts.</p></li>
+</ul>
+</section>
+<section id="attribute-3-gpa-and-advanced-courses" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-3-gpa-and-advanced-courses">Attribute 3: GPA and advanced courses</h3>
+<ul>
+<li><p>Measurable definition: The interaction of a student’s GPA and the number of advanced courses enrolled during a given year.</p></li>
+<li><p>Ideal measurement: The interaction of a randomly selected student’s GPA and the number of advanced courses taken in a given year for all K-12 years.</p></li>
+<li><p>Feasible measurement: The interaction of a self-selected school’s average GPA and percent of students enrolled in advanced courses in a given year for all years available.</p></li>
+<li><p>Measurement of program effect: The difference in the numeric value represented by the interaction of GPA and advance enrollment between schools/counties with full-day and half-day kindergarten. The difference is measured for as many years as possible, both before and after the program is initiated. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts, minus the difference between full-day and half-day kindergarten schools/counties before the program starts.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="measurement-and-abstraction-for-aca-medicaid-expansion" class="level1">
+<h1>2: Measurement and abstraction for ACA Medicaid Expansion</h1>
+<section id="possible-outcomes-1" class="level2">
+<h2 class="anchored" data-anchor-id="possible-outcomes-1">Possible outcomes</h2>
+<ul>
+<li><p>Health</p></li>
+<li><p>Healthcare Access</p></li>
+</ul>
+</section>
+<section id="outcome-1-health" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-1-health">Outcome 1: Health</h2>
+<p>List of all the possible attributes of the outcome:</p>
+<ul>
+<li><p>Sickness</p></li>
+<li><p>Disability</p></li>
+<li><p>Physical Activity</p></li>
+</ul>
+<p>Health status can be split into two categories, sickness and disability. Sickness covers diseases, viruses, cancer, or the common cold. Disability covers physical and mental aliments. The ACA aims to increase coverage for both, but another essential part of health is taking necessary steps to avoid sickness and disability. Physical activity measures how badly people want to stay healthy.</p>
+<section id="attribute-1-sickness" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-1-sickness">Attribute 1: Sickness</h3>
+<ul>
+<li><p>Measurable definition: The time an individual is sick in a year.</p></li>
+<li><p>Ideal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.</p></li>
+<li><p>Feasible measurement: The percent of days a person was sick for a given year.</p></li>
+<li><p>Measurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.</p></li>
+</ul>
+</section>
+<section id="attribute-2-disability" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-2-disability">Attribute 2: Disability</h3>
+<ul>
+<li><p>Measurable definition: If a person has a disability during a given year.</p></li>
+<li><p>Ideal measurement: The total number of disabilities a person has weighted by the intensity of the disability in a given year.</p></li>
+<li><p>Feasible measurement: A boolean equal to one if a person has one or more disabilities and equal to zero if a person does not have any disabilities during a given year.</p></li>
+<li><p>Measurement of program effect: The difference in the percent of people with disabilities between enrollment states and non-enrollment states. The average difference is measured from 2005 to 2020. The program effect is the average difference in percent disability between a person in an expansion state versus a non-expansion state after 2013 minus the average disability difference before 2013.</p></li>
+</ul>
+</section>
+<section id="attribute-3-physical-activity" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-3-physical-activity">Attribute 3: Physical Activity</h3>
+<ul>
+<li><p>Measurable definition: Time per day a person spends doing physical activities.</p></li>
+<li><p>Ideal measurement: The distribution of time spent doing physical activity for each day of a year.</p></li>
+<li><p>Feasible measurement: The average number of hours spent doing physical activity over a year.</p></li>
+<li><p>Measurement of program effect: The difference in the hours spent doing physical activity between an individual in an expansion and non-expansion state. This data is collected from 2015 to 2020. The program effect is the average difference in physical activity hours between expansion and non-expansion states after 2013, minus the average difference in physical activity hours before 2013</p></li>
+</ul>
+</section>
+</section>
+<section id="outcome-2-healthcare-access" class="level2">
+<h2 class="anchored" data-anchor-id="outcome-2-healthcare-access">Outcome 2: Healthcare Access</h2>
+<p>List of all the possible attributes of the outcome:</p>
+<ul>
+<li><p>Uninsurance Rate</p></li>
+<li><p>Healthcare Utilization</p></li>
+<li><p>Healthcare Supply</p></li>
+</ul>
+<p>One of the signifying reasons for the Affordable Care Act was to increase the number of Americans with access to affordable healthcare. The uninsurance rate is the proportion of people that do not have coverage. If healthcare access increases, then uninsurance rate is expected to fall. As for insured people, the increasing healthcare demand will strain the limited healthcare supply. It may be hard for individuals to access healthcare specialists unless utilization is low or supply is high. This is why healthcare supply and utilization are essential to monitor.</p>
+<section id="attribute-1-uninsurance-rate" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-1-uninsurance-rate">Attribute 1: Uninsurance Rate</h3>
+<ul>
+<li><p>Measurable definition: The percent of Americans that are not covered by healthcare insurance during a given year.</p></li>
+<li><p>Ideal measurement: The total number of people that do not have health insurance divided by the population in each state for all years between 2005 and 2020.</p></li>
+<li><p>Feasible measurement: The percent of people for the BRFSS dataset that do not have healthcare coverage for all years between 2005 and 2020.</p></li>
+<li><p>Measurement of program effect: The difference in percent uninsured between expansion and non-expansion states in a given year. This is repeated for all years between 2005 and 2020. The program effect is the average difference in the percent of people uninsured between expansion and non-expansion states after 2013, minus the average difference in uninsurance before 2013.</p></li>
+</ul>
+</section>
+<section id="attribute-2-healthcare-utilization" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-2-healthcare-utilization">Attribute 2: Healthcare Utilization</h3>
+<ul>
+<li><p>Measurable definition: The total time spent utilizing healthcare an individual made in a given year.</p></li>
+<li><p>Ideal measurement: An individual’s average healthcare utilization in a given year.</p></li>
+<li><p>Feasible measurement: The average number of trips to a doctor an individual made in a given year from the BRFSS data set.</p></li>
+<li><p>Measurement of program effect: The difference in number of individual doctor visits between expansion and non-expansion states. This is repeated for all years between 2005 and 2020. The program effect is the average difference in average doctor visits between expansion states and non-expansion states after 2013 minus the average difference in doctor visits before 2013.</p></li>
+</ul>
+</section>
+<section id="attribute-3-healthcare-supply" class="level3">
+<h3 class="anchored" data-anchor-id="attribute-3-healthcare-supply">Attribute 3: Healthcare Supply</h3>
+<ul>
+<li><p>Measurable definition: The healthcare supply during a given year.</p></li>
+<li><p>Ideal measurement: The total healthcare supply differentiated by type for each state in all years between 2005 and 2020.</p></li>
+<li><p>Feasible measurement: The total number of doctors in a given state relative to the state population during a given year for all years between 2005 and 2020.</p></li>
+<li><p>Measurement of program effect: The difference in the number of doctors between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the number of doctors between expansion and non-expansion after 2013 minus the average difference in doctors before 2013.</p></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

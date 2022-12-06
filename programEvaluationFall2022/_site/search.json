@@ -1,0 +1,471 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "programEvaluationFall2022",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "test.html",
+    "href": "test.html",
+    "title": "test",
+    "section": "",
+    "text": "hello world"
+  },
+  {
+    "objectID": "folder/index.html",
+    "href": "folder/index.html",
+    "title": "programEvaluationFall2022",
+    "section": "",
+    "text": "To learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "src/index.html",
+    "href": "src/index.html",
+    "title": "programEvaluationFall2022",
+    "section": "",
+    "text": "Hello World"
+  },
+  {
+    "objectID": "src/about.html",
+    "href": "src/about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "src/test.html",
+    "href": "src/test.html",
+    "title": "test",
+    "section": "",
+    "text": "hello world"
+  },
+  {
+    "objectID": "resources/about.html",
+    "href": "resources/about.html",
+    "title": "About",
+    "section": "",
+    "text": "1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "resources/index.html",
+    "href": "resources/index.html",
+    "title": "programEvaluationFall2022",
+    "section": "",
+    "text": "Hello World"
+  },
+  {
+    "objectID": "resources/test.html",
+    "href": "resources/test.html",
+    "title": "test",
+    "section": "",
+    "text": "hello world"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html",
+    "title": "Background and theory",
+    "section": "",
+    "text": "In the years leading to Medicaid, the rising cost of health insurance was a hot topic, and the need for government assistance was increasing. The United States population was proliferating, and many were from lower-class families. Between 1950 and 1963, hospital costs increased 6.7 percent a year, well above the rate of change in the cost of living. The federal government tried several half-measure programs, such as the Kerr-Mills act, which fell short of its intentions to lower costs for the increasing elderly populous. Disapproval for this Act spread throughout advocacy groups in the United States, and many states were putting off enrollment.\nIn 1965, Title XIX was signed by Lyndon B. Johnson, creating Medicaid, a comprehensive health coverage plan for low-income families. Like its predecessor, Kerr Mills, it uses a partnership between state and federal funds. State participation was not mandatory but greatly incentived. To qualify for Medicaid enrollment, citizens had to fall into two categories. One, they needed to be below the poverty line (by how much varied across states), and two, they needed to have a disability. Examples of qualifying disabilities are having a breast cancer diagnosis, blindness, physical disabilities, or becoming pregnant.\nIn 2010, the Obama Administration signed the Affordable Care Act (ACA) Medicaid Expansion into existence. The Act lowered the qualification categories from two to one. Enrollees only needed incomes up to 138% of the poverty line to receive Medicaid coverage. Initially, 35 states enrolled as well as Washington D.C. Additionally, the ACA provides premium tax credits for private health insurance, eliminates preexisting condition exclusion, and allows young adults to stay on their parent’s health insurance until age 26."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html#inputs",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html#inputs",
+    "title": "Background and theory",
+    "section": "Inputs",
+    "text": "Inputs\n\nState Funding: Before the expansion states payed up to 50% of Medicare cost. Under ACA the federal government will pay 100% of the cost until 2016 and 90% after that.\nFederal Funding: The federal government will pay 100% of ACA costs until 2016, and 90% after that. Additionally the Government will provide $11 Billion in funding to Federally Qualified Health Centers (FQHC).\nHigh Uninsurance Rate: The proportion of Americans without health insurance to with health insurance. Before 2014, uninsurance was at its highest (18 percent).\nHigh health insurance cost: Health Insurance cost has been increasing dramatically as Americans grow with age. The high cost is a motivator for the ACA expansion.\nState Politics: On average, democratic starts are more likely to enroll in the ACA expansion, and republican states are less likely.\nSupreme Count Decision: The Supreme court ruled that it is unconstitutional to make the ACA expansion mandatory for states, instead, states can voluntarily opt in."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html#activities",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html#activities",
+    "title": "Background and theory",
+    "section": "Activities",
+    "text": "Activities\n\nACA Starts in 2014: The ACA was signed and put into partial effect by President Obama in 2010. In 2014 the ACA went into full effect.\nStates Enroll in ACA: States can opt in or out of ACA expansion.\nIncrease in Medicaid Coverage: Under the ACA, all Americans below 138% FPL are allowed access to Medicaid.\nIncrease Private Coverage: The ACA lowers cost barriers for new and existing private health insurance holders.\nEliminate Preexisting Condition Exclusion: Private health insurance companies cannot decline individuals because of preexisting conditions.\nIncrease Dependency Age: The ACA mandates that private insurance companies cannot drop dependents off of parents health insurance policies until age 26.\nPremium Tax Credits: Americans between 400% and 138% FPL, can receive premium tax credits to reduce private health insurance costs.\nDistribute Federal Funding to FQHCs: $11 billion in federal funding is to be dispersed between FQHCs across expansion and non-expansion states."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html#outputs",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html#outputs",
+    "title": "Background and theory",
+    "section": "Outputs",
+    "text": "Outputs\n\nStates Opt Out of ACA: States can chose to enroll in ACA expansion.\nStates Enroll in ACA: States can choose not to enroll in ACA expansion.\nNon-expansion Healthcare Demand: A spillover effect from increase healthcare quantity demanded in expansion states will slightly increase quantity demanded in non-expansion states.\nCoverage Access Increases in Expansion States: More low-income people have access to affordable healthcare insurance in expansion states.\nPatients Increase in Expansion States: Due to a relative decrease in healthcare cost, the number of patients will increase in expansion states.\nBetter Medical Delivery methods: Federal Funding will initiate more medical research to develop better medical delivery methods."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html#outcomes",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html#outcomes",
+    "title": "Background and theory",
+    "section": "Outcomes",
+    "text": "Outcomes\n\nHealth Insurance Cost Decreases: The out-of-pocket costs Americans pay for healthcare will fall.\nUninsurance Rate Decreases: The increase in health insurance availability will cause the number of uninsured people to fall.\nHealthcare Revenue Increases: From an increased demand in healthcare and an increase in federal funding, revenue will increase for healthcare companies.\nHealthcare Quality Increases: Additional funding and demand will boost the quality of healthcare.\nHealthcare Supply Increase: As a result of excess demand, the supply of healthcare will increase.\nAmerican Health Increases: More Americans have the means to receive healthcare including preventative treatment."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_backgroud-theory.html#diagram",
+    "href": "src/writeup/hunter-giles_backgroud-theory.html#diagram",
+    "title": "Background and theory",
+    "section": "Diagram",
+    "text": "Diagram\n\n\n\nLogic model"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html",
+    "href": "src/writeup/hunter-giles_measurement.html",
+    "title": "Measurement",
+    "section": "",
+    "text": "Feel free to remove any/all of the placeholder text and instructions here!"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#possible-outcomes",
+    "href": "src/writeup/hunter-giles_measurement.html#possible-outcomes",
+    "title": "Measurement",
+    "section": "Possible outcomes",
+    "text": "Possible outcomes\n\nBetter Achievements\nIntellectual Advantage"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#outcome-1-better-achievements",
+    "href": "src/writeup/hunter-giles_measurement.html#outcome-1-better-achievements",
+    "title": "Measurement",
+    "section": "Outcome 1: Better Achievements",
+    "text": "Outcome 1: Better Achievements\nList of all the possible attributes of the outcome:\n\nHigh Course Grades\nLess Repeating Grades\nMore Extracurricular Activities\n\nBetter Achievements is hard to measure because of its inherit ambiguity, so three measurable proxy variables are suggested. Course grades and the number of repeating grades both measure academic achievement. If the full-day kindergarten program succeeds, then a student who had full days of kindergarten will, on average, have higher grades and fewer repeating grades than an average student with half-day kindergarten. Additionally, we can measure the effects across time if multiple years are available.\nThe number of extracurricular activities measures outside school achievement. While some activities are more time-consuming than others, the number of activities should generally indicate a student’s success.\n\nAttribute 1: Course Grade\n\nMeasurable definition: The GPA of a student in a given year.\nIdeal measurement: The GPA of a randomly selected student in a given year for all years K-12.\nFeasible measurement: The average GPA for self-selecting schools/counties in a given year for all years available.\nMeasurement of program effect: The difference in average GPA during a given year between schools/counties with full-day and half-day kindergarten. This data is collected across multiple years, both before and after the full-day kindergarten program start date. A difference-and-difference model can measure the effect of being a full-day kindergarten school/county after the program has been implemented.\n\n\n\nAttribute 2: Repeating Grades\n\nMeasurable definition: The number of grades repeated for a student in grades K-12.\nIdeal measurement: A boolean equal to 1 if a randomly selected student repeated a grade in a given year and equal to 0 if not.\nFeasible measurement: The percent of students in a school/county that had to repeat a grade in a given year.\nMeasurement of program effect: The difference in the percent of students that had to repeat a grade between self-selecting schools with full-day and half-day kindergarten during a given year. The difference measures for multiple years before and after the full-day kindergarten program start date. The difference is compared across all available years.\n\n\n\nAttribute 3: Number of Extracurricular Activities\n\nMeasurable definition: The total number of extracurricular activities per student in one year.\nIdeal measurement: The total number of extracurricular activities from a randomly selected student per year for 12 years.\nFeasible measurement: The percent of students in a particular school/county participating in an extracurricular activity in a given year for less than 12 years.\nMeasurement of program effect: The difference in percent number of students with at least one extracurricular activity between schools/counties with full-day and half-day kindergarten, and the differences across time."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#outcome-2-intellectual-advantage",
+    "href": "src/writeup/hunter-giles_measurement.html#outcome-2-intellectual-advantage",
+    "title": "Measurement",
+    "section": "Outcome 2: Intellectual Advantage",
+    "text": "Outcome 2: Intellectual Advantage\nList of all the possible attributes of the outcome:\n\nStandardized Test Scores\nAdvanced Courses\nGPA and Advanced Courses\n\nBecause intellectual advantage mediates achievement, there are many overlapping characteristics, one of which is GPA. A person with more intellectual power can obtain a higher GPA than someone with less. However, if a person has a high GPA and takes advanced courses, this is perhaps a better measure of intellectual advantage. Standardized tests are also designed to separate the intellectual from the non-intellectual.\n\nAttribute 1: Standardized Test Scores\n\nMeasurable definition: A student’s score on a particular standardized test.\nIdeal measurement: A randomly selected student’s test score on a particular test during a given year.\nFeasible measurement: The average standardized test score of a school/county during a given year.\nMeasurement of program effect: The difference in standardized test scores between schools/counties with full-day and half-day kindergarten during a given year. The difference is calculated across all available years, both before and after the full-day kindergarten program is implemented. The program effect is the average difference between the full-day and half-day kindergarten schools after the program was implemented.\n\n\n\nAttribute 2: Advanced Courses\n\nMeasurable definition: The number of advanced courses (TAG, AP, etc.) a student is enrolled in during a given year.\nIdeal measurement: The number of advanced courses a randomly selected student is enrolled in during a given year for all years K-12.\nFeasible measurement: The percent of students enrolled in advanced courses offered by a school/county in a given year.\nMeasurement of program effect: The difference in percent advanced between schools/counties in a given year. This difference is measured across multiple years, if possible, and compared. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts minus the difference between full-day and half-day kindergarten schools/counties before the program starts.\n\n\n\nAttribute 3: GPA and advanced courses\n\nMeasurable definition: The interaction of a student’s GPA and the number of advanced courses enrolled during a given year.\nIdeal measurement: The interaction of a randomly selected student’s GPA and the number of advanced courses taken in a given year for all K-12 years.\nFeasible measurement: The interaction of a self-selected school’s average GPA and percent of students enrolled in advanced courses in a given year for all years available.\nMeasurement of program effect: The difference in the numeric value represented by the interaction of GPA and advance enrollment between schools/counties with full-day and half-day kindergarten. The difference is measured for as many years as possible, both before and after the program is initiated. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts, minus the difference between full-day and half-day kindergarten schools/counties before the program starts."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#possible-outcomes-1",
+    "href": "src/writeup/hunter-giles_measurement.html#possible-outcomes-1",
+    "title": "Measurement",
+    "section": "Possible outcomes",
+    "text": "Possible outcomes\n\nHealth\nHealthcare Access"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#outcome-1-health",
+    "href": "src/writeup/hunter-giles_measurement.html#outcome-1-health",
+    "title": "Measurement",
+    "section": "Outcome 1: Health",
+    "text": "Outcome 1: Health\nList of all the possible attributes of the outcome:\n\nSickness\nDisability\nPhysical Activity\n\nHealth status can be split into two categories, sickness and disability. Sickness covers diseases, viruses, cancer, or the common cold. Disability covers physical and mental aliments. The ACA aims to increase coverage for both, but another essential part of health is taking necessary steps to avoid sickness and disability. Physical activity measures how badly people want to stay healthy.\n\nAttribute 1: Sickness\n\nMeasurable definition: The time an individual is sick in a year.\nIdeal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.\nFeasible measurement: The percent of days a person was sick for a given year.\nMeasurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.\n\n\n\nAttribute 2: Disability\n\nMeasurable definition: If a person has a disability during a given year.\nIdeal measurement: The total number of disabilities a person has weighted by the intensity of the disability in a given year.\nFeasible measurement: A boolean equal to one if a person has one or more disabilities and equal to zero if a person does not have any disabilities during a given year.\nMeasurement of program effect: The difference in the percent of people with disabilities between enrollment states and non-enrollment states. The average difference is measured from 2005 to 2020. The program effect is the average difference in percent disability between a person in an expansion state versus a non-expansion state after 2013 minus the average disability difference before 2013.\n\n\n\nAttribute 3: Physical Activity\n\nMeasurable definition: Time per day a person spends doing physical activities.\nIdeal measurement: The distribution of time spent doing physical activity for each day of a year.\nFeasible measurement: The average number of hours spent doing physical activity over a year.\nMeasurement of program effect: The difference in the hours spent doing physical activity between an individual in an expansion and non-expansion state. This data is collected from 2015 to 2020. The program effect is the average difference in physical activity hours between expansion and non-expansion states after 2013, minus the average difference in physical activity hours before 2013"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_measurement.html#outcome-2-healthcare-access",
+    "href": "src/writeup/hunter-giles_measurement.html#outcome-2-healthcare-access",
+    "title": "Measurement",
+    "section": "Outcome 2: Healthcare Access",
+    "text": "Outcome 2: Healthcare Access\nList of all the possible attributes of the outcome:\n\nUninsurance Rate\nHealthcare Utilization\nHealthcare Supply\n\nOne of the signifying reasons for the Affordable Care Act was to increase the number of Americans with access to affordable healthcare. The uninsurance rate is the proportion of people that do not have coverage. If healthcare access increases, then uninsurance rate is expected to fall. As for insured people, the increasing healthcare demand will strain the limited healthcare supply. It may be hard for individuals to access healthcare specialists unless utilization is low or supply is high. This is why healthcare supply and utilization are essential to monitor.\n\nAttribute 1: Uninsurance Rate\n\nMeasurable definition: The percent of Americans that are not covered by healthcare insurance during a given year.\nIdeal measurement: The total number of people that do not have health insurance divided by the population in each state for all years between 2005 and 2020.\nFeasible measurement: The percent of people for the BRFSS dataset that do not have healthcare coverage for all years between 2005 and 2020.\nMeasurement of program effect: The difference in percent uninsured between expansion and non-expansion states in a given year. This is repeated for all years between 2005 and 2020. The program effect is the average difference in the percent of people uninsured between expansion and non-expansion states after 2013, minus the average difference in uninsurance before 2013.\n\n\n\nAttribute 2: Healthcare Utilization\n\nMeasurable definition: The total time spent utilizing healthcare an individual made in a given year.\nIdeal measurement: An individual’s average healthcare utilization in a given year.\nFeasible measurement: The average number of trips to a doctor an individual made in a given year from the BRFSS data set.\nMeasurement of program effect: The difference in number of individual doctor visits between expansion and non-expansion states. This is repeated for all years between 2005 and 2020. The program effect is the average difference in average doctor visits between expansion states and non-expansion states after 2013 minus the average difference in doctor visits before 2013.\n\n\n\nAttribute 3: Healthcare Supply\n\nMeasurable definition: The healthcare supply during a given year.\nIdeal measurement: The total healthcare supply differentiated by type for each state in all years between 2005 and 2020.\nFeasible measurement: The total number of doctors in a given state relative to the state population during a given year for all years between 2005 and 2020.\nMeasurement of program effect: The difference in the number of doctors between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the number of doctors between expansion and non-expansion after 2013 minus the average difference in doctors before 2013."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html",
+    "title": "Threats to validity",
+    "section": "",
+    "text": "Feel free to remove any/all of the placeholder text and instructions here!"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#internal-validity",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#internal-validity",
+    "title": "Threats to validity",
+    "section": "Internal validity",
+    "text": "Internal validity\n\nSelection: 1\nAttrition: 0\nMaturation: 1\nSecular trends: 1\nSeasonality: NA\nTesting: NA\nRegression to the mean: 1\nMeasurement error: 0\nTime frame of study: 0\nHawthorne effects: 0\nJohn Henry effects: 0\nSpillovers: 1\nIntervening events: 0\n\nFinal score: 5"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#general-summary",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#general-summary",
+    "title": "Threats to validity",
+    "section": "General Summary:",
+    "text": "General Summary:\nSchultz Study was designed to measure the Progresa program’s effect on underprivileged children’s school enrollment and inequality. The study used a difference-and-difference model to estimate the treatment effect. The selection process randomly finds economically and geographically disadvantaged families from Mexico’s lower-class population. The participants (treatment group) are offered education subsidies for children in grades 1st through 9th. The enrollment status is then compared to non-participants (control) in the lower class population. The study results found that Progresa students have a higher trending enrollment rate than the control and a significantly higher enrollment rate in the 6th grade. Additionally, the program decrease inequality."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#external-validity",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#external-validity",
+    "title": "Threats to validity",
+    "section": "External validity",
+    "text": "External validity\nThere are no blatant offenses to external validity in this study. However, if the intended use of this study is for America or other countries besides Mexico, then it may not generalize well. Mexico’s noneducational rate is significantly higher than the U.S., so that the study may have less impact on more modern countries. Other differences, such as existing policies between countries, can also affect external validity. Additionally, the study uses survey data for the control group, which may not accurately represent the population."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#construct-validity",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#construct-validity",
+    "title": "Threats to validity",
+    "section": "Construct validity",
+    "text": "Construct validity\nThe study uses the difference-and-difference model combined with random selection, which should eliminate back door bias. The control group is in a different area than the participants, so the spillover effect should be minimal. However, the study does mention that the enrollment variable is subject to endogeneity. Child labor supply is an unobserved factor that is correlated with school enrollment. If child labor is left in the error term, the model could be biased. The study uses an IV to reduce bias, but admittedly bias is hard to diminish completely. Another threat to internal validity is that the Hawthorne Progresa participants are incentivized to produce good results for the study, so they keep getting subsidies."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#internal-validity-1",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#internal-validity-1",
+    "title": "Threats to validity",
+    "section": "Internal validity",
+    "text": "Internal validity\n\nSelection: 1\nAttrition:\nMaturation: 1\nSecular trends: 1\n\nSeasonality:\n\nTesting:\nRegression to the mean:\nMeasurement error: 0\nTime frame of study: 1\nHawthorne effects: 1\nJohn Henry effects: 1\nSpillovers: 0\nIntervening events: 1\n\nFinal score: 7"
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#general-summary-1",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#general-summary-1",
+    "title": "Threats to validity",
+    "section": "General Summary:",
+    "text": "General Summary:\nThis study examines the effect of Sesame Street on educational outcomes. In 1969 Sesame Street became the first large-scale educational T.V show broadcast to the country. However, households that were out of range of broadcasting towers could not view it. The present student exploits this by creating an interaction variable for children within a broadcasting area who were in preschool during Sesame Street’s premiere. While controlling for time variants, the study found that Sesame Street significantly increases educational advantage."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#external-validity-1",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#external-validity-1",
+    "title": "Threats to validity",
+    "section": "External validity",
+    "text": "External validity\nThe study mentions that the primary interaction variable does not measure the average treatment effect. Instead, it identifies the relationship between the intent-to-treat and education outcome. This measurement care can lead to bias in the model."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_threats-to-validity.html#construct-validity-1",
+    "href": "src/writeup/hunter-giles_threats-to-validity.html#construct-validity-1",
+    "title": "Threats to validity",
+    "section": "Construct validity",
+    "text": "Construct validity\nThis study accounted for several threats to construct validity. The analysis accounts for selection bias by arguing that broadcasting tower placement is unrelated to whether a child has access to Sesame Street. However, the study does not account for family mobility. Subjects that move out of a treatment county and into a control county or vice versa create bias in the model. Besides mobility, there may be inter-group mingling among children. This could create a spillover effect, in which treatment children influence control children’s behavior.\nTo account for variations in time, the study’s model uses time-fixed-effects. However, the fixed effect may not fully account for policy changes. The study mentions that it uses a dummy variable for years after the Food Stamp Act of 1964 but makes no attempt to account for Medicaid in 1967."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_causal-model.html",
+    "href": "src/writeup/hunter-giles_causal-model.html",
+    "title": "Causal models",
+    "section": "",
+    "text": "Hawaii Housing Prices on Out-side Demand\n\n\nThe housing market in Hawaii is in a crunch. The state is suffering from a housing shortage that is skyrocketing prices. Many believe the price movement is caused by wealthy out-of-state buyers purchasing property in Hawaii. This is an exciting narrative, but the author claims this is unlikely. From 2010 to 2020, the number of outside buyers has decreased, likely crowded out buy the increase in inside buyers. Housing prices are weakly correlated with the percent change in outside buyers and slightly negatively correlated when examining state-level data. There is a multitude of existing research to back this claim; this pattern is seen in beachy tourist areas to cold climate North American suburbs. However, this does not mean the outside buyers do not have a causal relationship. In fact, housing regulations could be mediated through outside buyers.\nThe article makes two claims, housing prices are unaffected by outiside buyers, and are affected by housing regulations. To analyze the first claim, the housing regulation variable must be isolated. Interest rates, political climate, tourism rates, and inside buyers are back doors and must be controlled. Hawaii’s political leaders are imposing regulations to slow down outside buyers, so the number of outside buyers is a front door, and does not need to be controlled."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_causal-model.html#dag-ii",
+    "href": "src/writeup/hunter-giles_causal-model.html#dag-ii",
+    "title": "Causal models",
+    "section": "2: DAG II",
+    "text": "2: DAG II\n\n\n\nGetting Hired on Weak Social Ties\n\n\nMore than 50 years ago, Mark Granovetter theorized that a person’s weak social ties are more likely to land a job than strong social ties. In Granovetter’s studies, he was only able to prove correlation, however, with current Linked-In data, a new study showed that weak and social relations have a positive effect on getting hires. The article does not explicitly say what variables were controlled for because they conducted an RCT. However, likely influences are education, age, experience, strong social ties, and extroversion. Education and experience have similar back door biases. As education and experience increase, a person becomes more qualified and has more social interactions. Age behaves similarly; as age increases, a person is generally more capable and has more time to create weak social ties. As the number of strong ties increases, the number of weak ties increases as well, and as past data has shown, strong ties also increase the likely hood of getting a job. Extroversion boosts both weak ties and strong ties, but cannot be observed.\nIf this study was created without RCT, the model’s backdoor must be controlled for. Education, age, strong ties, and experience are included in the model. Extroversion is left in the error term because an accurate proxy is unavailable."
+  },
+  {
+    "objectID": "src/writeup/hunter-giles_causal-model.html#dag-for-your-program",
+    "href": "src/writeup/hunter-giles_causal-model.html#dag-for-your-program",
+    "title": "Causal models",
+    "section": "3: DAG for your program",
+    "text": "3: DAG for your program\n\n\n\nHealth on Affordable Care Act\n\n\nThe Affordable Care Act (ACA) is a federal and state-funded program designed to help American health by increasing healthcare access and decreasing healthcare insurance. States must voluntarily enroll in the ACA, so measured effects are subject to selection bias. On bias could be the current political climate. If republicans represent a state, then the state’s policy is governed by conservative ideology. As a result, the state is less likely to adopt social programs like Medicaid. Democratic states are more likely to adopt social programs. Political beliefs are also correlated with lifestyle choices that can affect overall health.\nWith the ACA expansion, the federal government offers to pay for 90% of Medicaid costs. If a state has high healthcare costs, they are more likely to enroll in the Medicaid Expansion. Conditions with high healthcare costs are likely to have worse health because there are more low-income people. On average, people with low income have unhealthier lifestyles.\nState and year fixed effects can be used to account for selection bias. The model will include a dummy variable for each state and year the data was collected. This should close the backdoor made by variation in state and year characteristics."
+  },
+  {
+    "objectID": "src/writeup/index.html",
+    "href": "src/writeup/index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "text: “Outcome and Causation”\ntext: “Data and Methods”\ntext: “Synthetic Analysis”\ntext: “Conclusion”"
+  },
+  {
+    "objectID": "src/writeup/background.html",
+    "href": "src/writeup/background.html",
+    "title": "Background",
+    "section": "",
+    "text": "In the years leading to Medicaid, the rising cost of health insurance was a hot topic, and the need for government assistance was increasing. The United States population was proliferating, and many were from lower-class families. Between 1950 and 1963, hospital costs increased 6.7 percent a year, well above the rate of change in the cost of living. The federal government tried several half-measure programs, such as the Kerr-Mills act, which fell short of its intentions to lower costs for the increasing elderly populous. Disapproval for this Act spread throughout advocacy groups in the United States, and many states were putting off enrollment.\nIn 1965, Title XIX was signed by Lyndon B. Johnson, creating Medicaid, a comprehensive health coverage plan for low-income families. Like its predecessor, Kerr Mills, it uses a partnership between state and federal funds. State participation was not mandatory but greatly incentived. To qualify for Medicaid enrollment, citizens had to fall into two categories. One, they needed to be below the poverty line (by how much varied across states), and two, they needed to have a disability. Examples of qualifying disabilities are having a breast cancer diagnosis, blindness, physical disabilities, or becoming pregnant.\nIn 2010, the Obama Administration signed the Affordable Care Act (ACA) Medicaid Expansion into existence. The Act lowered the qualification categories from two to one. Enrollees only needed incomes up to 138% of the poverty line to receive Medicaid coverage. Initially, 35 states enrolled as well as Washington D.C. Additionally, the ACA provides premium tax credits for private health insurance, eliminates preexisting condition exclusion, and allows young adults to stay on their parent’s health insurance until age 26."
+  },
+  {
+    "objectID": "src/writeup/background.html#inputs",
+    "href": "src/writeup/background.html#inputs",
+    "title": "Background",
+    "section": "Inputs",
+    "text": "Inputs\n\nState Funding: Before the expansion states payed up to 50% of Medicare cost. Under ACA the federal government will pay 100% of the cost until 2016 and 90% after that.\nFederal Funding: The federal government will pay 100% of ACA costs until 2016, and 90% after that. Additionally the Government will provide $11 Billion in funding to Federally Qualified Health Centers (FQHC).\nHigh Uninsurance Rate: The proportion of Americans without health insurance to with health insurance. Before 2014, uninsurance was at its highest (18 percent).\nHigh health insurance cost: Health Insurance cost has been increasing dramatically as Americans grow with age. The high cost is a motivator for the ACA expansion.\nState Politics: On average, democratic starts are more likely to enroll in the ACA expansion, and republican states are less likely.\nSupreme Count Decision: The Supreme court ruled that it is unconstitutional to make the ACA expansion mandatory for states, instead, states can voluntarily opt in."
+  },
+  {
+    "objectID": "src/writeup/background.html#activities",
+    "href": "src/writeup/background.html#activities",
+    "title": "Background",
+    "section": "Activities",
+    "text": "Activities\n\nACA Starts in 2014: The ACA was signed and put into partial effect by President Obama in 2010. In 2014 the ACA went into full effect.\nStates Enroll in ACA: States can opt in or out of ACA expansion.\nIncrease in Medicaid Coverage: Under the ACA, all Americans below 138% FPL are allowed access to Medicaid.\nIncrease Private Coverage: The ACA lowers cost barriers for new and existing private health insurance holders.\nEliminate Preexisting Condition Exclusion: Private health insurance companies cannot decline individuals because of preexisting conditions.\nIncrease Dependency Age: The ACA mandates that private insurance companies cannot drop dependents off of parents health insurance policies until age 26.\nPremium Tax Credits: Americans between 400% and 138% FPL, can receive premium tax credits to reduce private health insurance costs.\nDistribute Federal Funding to FQHCs: $11 billion in federal funding is to be dispersed between FQHCs across expansion and non-expansion states."
+  },
+  {
+    "objectID": "src/writeup/background.html#outputs",
+    "href": "src/writeup/background.html#outputs",
+    "title": "Background",
+    "section": "Outputs",
+    "text": "Outputs\n\nStates Opt Out of ACA: States can chose to enroll in ACA expansion.\nStates Enroll in ACA: States can choose not to enroll in ACA expansion.\nNon-expansion Healthcare Demand: A spillover effect from increase healthcare quantity demanded in expansion states will slightly increase quantity demanded in non-expansion states.\nCoverage Access Increases in Expansion States: More low-income people have access to affordable healthcare insurance in expansion states.\nPatients Increase in Expansion States: Due to a relative decrease in healthcare cost, the number of patients will increase in expansion states.\nBetter Medical Delivery methods: Federal Funding will initiate more medical research to develop better medical delivery methods."
+  },
+  {
+    "objectID": "src/writeup/background.html#outcomes",
+    "href": "src/writeup/background.html#outcomes",
+    "title": "Background",
+    "section": "Outcomes",
+    "text": "Outcomes\n\nHealth Insurance Cost Decreases: The out-of-pocket costs Americans pay for healthcare will fall.\nUninsurance Rate Decreases: The increase in health insurance availability will cause the number of uninsured people to fall.\nHealthcare Revenue Increases: From an increased demand in healthcare and an increase in federal funding, revenue will increase for healthcare companies.\nHealthcare Quality Increases: Additional funding and demand will boost the quality of healthcare.\nHealthcare Supply Increase: As a result of excess demand, the supply of healthcare will increase.\nAmerican Health Increases: More Americans have the means to receive healthcare including preventative treatment."
+  },
+  {
+    "objectID": "src/writeup/background.html#diagram",
+    "href": "src/writeup/background.html#diagram",
+    "title": "Background",
+    "section": "Diagram",
+    "text": "Diagram\n\n\n\nLogic model"
+  },
+  {
+    "objectID": "src/writeup/measurement.html",
+    "href": "src/writeup/measurement.html",
+    "title": "Measurement",
+    "section": "",
+    "text": "Feel free to remove any/all of the placeholder text and instructions here!"
+  },
+  {
+    "objectID": "src/writeup/measurement.html#possible-outcomes",
+    "href": "src/writeup/measurement.html#possible-outcomes",
+    "title": "Measurement",
+    "section": "Possible outcomes",
+    "text": "Possible outcomes\n\nBetter Achievements\nIntellectual Advantage"
+  },
+  {
+    "objectID": "src/writeup/measurement.html#outcome-1-better-achievements",
+    "href": "src/writeup/measurement.html#outcome-1-better-achievements",
+    "title": "Measurement",
+    "section": "Outcome 1: Better Achievements",
+    "text": "Outcome 1: Better Achievements\nList of all the possible attributes of the outcome:\n\nHigh Course Grades\nLess Repeating Grades\nMore Extracurricular Activities\n\nBetter Achievements is hard to measure because of its inherit ambiguity, so three measurable proxy variables are suggested. Course grades and the number of repeating grades both measure academic achievement. If the full-day kindergarten program succeeds, then a student who had full days of kindergarten will, on average, have higher grades and fewer repeating grades than an average student with half-day kindergarten. Additionally, we can measure the effects across time if multiple years are available.\nThe number of extracurricular activities measures outside school achievement. While some activities are more time-consuming than others, the number of activities should generally indicate a student’s success.\n\nAttribute 1: Course Grade\n\nMeasurable definition: The GPA of a student in a given year.\nIdeal measurement: The GPA of a randomly selected student in a given year for all years K-12.\nFeasible measurement: The average GPA for self-selecting schools/counties in a given year for all years available.\nMeasurement of program effect: The difference in average GPA during a given year between schools/counties with full-day and half-day kindergarten. This data is collected across multiple years, both before and after the full-day kindergarten program start date. A difference-and-difference model can measure the effect of being a full-day kindergarten school/county after the program has been implemented.\n\n\n\nAttribute 2: Repeating Grades\n\nMeasurable definition: The number of grades repeated for a student in grades K-12.\nIdeal measurement: A boolean equal to 1 if a randomly selected student repeated a grade in a given year and equal to 0 if not.\nFeasible measurement: The percent of students in a school/county that had to repeat a grade in a given year.\nMeasurement of program effect: The difference in the percent of students that had to repeat a grade between self-selecting schools with full-day and half-day kindergarten during a given year. The difference measures for multiple years before and after the full-day kindergarten program start date. The difference is compared across all available years.\n\n\n\nAttribute 3: Number of Extracurricular Activities\n\nMeasurable definition: The total number of extracurricular activities per student in one year.\nIdeal measurement: The total number of extracurricular activities from a randomly selected student per year for 12 years.\nFeasible measurement: The percent of students in a particular school/county participating in an extracurricular activity in a given year for less than 12 years.\nMeasurement of program effect: The difference in percent number of students with at least one extracurricular activity between schools/counties with full-day and half-day kindergarten, and the differences across time."
+  },
+  {
+    "objectID": "src/writeup/measurement.html#outcome-2-intellectual-advantage",
+    "href": "src/writeup/measurement.html#outcome-2-intellectual-advantage",
+    "title": "Measurement",
+    "section": "Outcome 2: Intellectual Advantage",
+    "text": "Outcome 2: Intellectual Advantage\nList of all the possible attributes of the outcome:\n\nStandardized Test Scores\nAdvanced Courses\nGPA and Advanced Courses\n\nBecause intellectual advantage mediates achievement, there are many overlapping characteristics, one of which is GPA. A person with more intellectual power can obtain a higher GPA than someone with less. However, if a person has a high GPA and takes advanced courses, this is perhaps a better measure of intellectual advantage. Standardized tests are also designed to separate the intellectual from the non-intellectual.\n\nAttribute 1: Standardized Test Scores\n\nMeasurable definition: A student’s score on a particular standardized test.\nIdeal measurement: A randomly selected student’s test score on a particular test during a given year.\nFeasible measurement: The average standardized test score of a school/county during a given year.\nMeasurement of program effect: The difference in standardized test scores between schools/counties with full-day and half-day kindergarten during a given year. The difference is calculated across all available years, both before and after the full-day kindergarten program is implemented. The program effect is the average difference between the full-day and half-day kindergarten schools after the program was implemented.\n\n\n\nAttribute 2: Advanced Courses\n\nMeasurable definition: The number of advanced courses (TAG, AP, etc.) a student is enrolled in during a given year.\nIdeal measurement: The number of advanced courses a randomly selected student is enrolled in during a given year for all years K-12.\nFeasible measurement: The percent of students enrolled in advanced courses offered by a school/county in a given year.\nMeasurement of program effect: The difference in percent advanced between schools/counties in a given year. This difference is measured across multiple years, if possible, and compared. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts minus the difference between full-day and half-day kindergarten schools/counties before the program starts.\n\n\n\nAttribute 3: GPA and advanced courses\n\nMeasurable definition: The interaction of a student’s GPA and the number of advanced courses enrolled during a given year.\nIdeal measurement: The interaction of a randomly selected student’s GPA and the number of advanced courses taken in a given year for all K-12 years.\nFeasible measurement: The interaction of a self-selected school’s average GPA and percent of students enrolled in advanced courses in a given year for all years available.\nMeasurement of program effect: The difference in the numeric value represented by the interaction of GPA and advance enrollment between schools/counties with full-day and half-day kindergarten. The difference is measured for as many years as possible, both before and after the program is initiated. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts, minus the difference between full-day and half-day kindergarten schools/counties before the program starts."
+  },
+  {
+    "objectID": "src/writeup/measurement.html#possible-outcomes-1",
+    "href": "src/writeup/measurement.html#possible-outcomes-1",
+    "title": "Measurement",
+    "section": "Possible outcomes",
+    "text": "Possible outcomes\n\nHealth\nHealthcare Access"
+  },
+  {
+    "objectID": "src/writeup/measurement.html#outcome-1-health",
+    "href": "src/writeup/measurement.html#outcome-1-health",
+    "title": "Measurement",
+    "section": "Outcome 1: Health",
+    "text": "Outcome 1: Health\nList of all the possible attributes of the outcome:\n\nSickness\nDisability\nPhysical Activity\n\nHealth status can be split into two categories, sickness and disability. Sickness covers diseases, viruses, cancer, or the common cold. Disability covers physical and mental aliments. The ACA aims to increase coverage for both, but another essential part of health is taking necessary steps to avoid sickness and disability. Physical activity measures how badly people want to stay healthy.\n\nAttribute 1: Sickness\n\nMeasurable definition: The time an individual is sick in a year.\nIdeal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.\nFeasible measurement: The percent of days a person was sick for a given year.\nMeasurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.\n\n\n\nAttribute 2: Disability\n\nMeasurable definition: If a person has a disability during a given year.\nIdeal measurement: The total number of disabilities a person has weighted by the intensity of the disability in a given year.\nFeasible measurement: A boolean equal to one if a person has one or more disabilities and equal to zero if a person does not have any disabilities during a given year.\nMeasurement of program effect: The difference in the percent of people with disabilities between enrollment states and non-enrollment states. The average difference is measured from 2005 to 2020. The program effect is the average difference in percent disability between a person in an expansion state versus a non-expansion state after 2013 minus the average disability difference before 2013.\n\n\n\nAttribute 3: Physical Activity\n\nMeasurable definition: Time per day a person spends doing physical activities.\nIdeal measurement: The distribution of time spent doing physical activity for each day of a year.\nFeasible measurement: The average number of hours spent doing physical activity over a year.\nMeasurement of program effect: The difference in the hours spent doing physical activity between an individual in an expansion and non-expansion state. This data is collected from 2015 to 2020. The program effect is the average difference in physical activity hours between expansion and non-expansion states after 2013, minus the average difference in physical activity hours before 2013"
+  },
+  {
+    "objectID": "src/writeup/measurement.html#outcome-2-healthcare-access",
+    "href": "src/writeup/measurement.html#outcome-2-healthcare-access",
+    "title": "Measurement",
+    "section": "Outcome 2: Healthcare Access",
+    "text": "Outcome 2: Healthcare Access\nList of all the possible attributes of the outcome:\n\nUninsurance Rate\nHealthcare Utilization\nHealthcare Supply\n\nOne of the signifying reasons for the Affordable Care Act was to increase the number of Americans with access to affordable healthcare. The uninsurance rate is the proportion of people that do not have coverage. If healthcare access increases, then uninsurance rate is expected to fall. As for insured people, the increasing healthcare demand will strain the limited healthcare supply. It may be hard for individuals to access healthcare specialists unless utilization is low or supply is high. This is why healthcare supply and utilization are essential to monitor.\n\nAttribute 1: Uninsurance Rate\n\nMeasurable definition: The percent of Americans that are not covered by healthcare insurance during a given year.\nIdeal measurement: The total number of people that do not have health insurance divided by the population in each state for all years between 2005 and 2020.\nFeasible measurement: The percent of people for the BRFSS dataset that do not have healthcare coverage for all years between 2005 and 2020.\nMeasurement of program effect: The difference in percent uninsured between expansion and non-expansion states in a given year. This is repeated for all years between 2005 and 2020. The program effect is the average difference in the percent of people uninsured between expansion and non-expansion states after 2013, minus the average difference in uninsurance before 2013.\n\n\n\nAttribute 2: Healthcare Utilization\n\nMeasurable definition: The total time spent utilizing healthcare an individual made in a given year.\nIdeal measurement: An individual’s average healthcare utilization in a given year.\nFeasible measurement: The average number of trips to a doctor an individual made in a given year from the BRFSS data set.\nMeasurement of program effect: The difference in number of individual doctor visits between expansion and non-expansion states. This is repeated for all years between 2005 and 2020. The program effect is the average difference in average doctor visits between expansion states and non-expansion states after 2013 minus the average difference in doctor visits before 2013.\n\n\n\nAttribute 3: Healthcare Supply\n\nMeasurable definition: The healthcare supply during a given year.\nIdeal measurement: The total healthcare supply differentiated by type for each state in all years between 2005 and 2020.\nFeasible measurement: The total number of doctors in a given state relative to the state population during a given year for all years between 2005 and 2020.\nMeasurement of program effect: The difference in the number of doctors between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the number of doctors between expansion and non-expansion after 2013 minus the average difference in doctors before 2013."
+  },
+  {
+    "objectID": "src/writeup/causal-model.html",
+    "href": "src/writeup/causal-model.html",
+    "title": "Causal Model",
+    "section": "",
+    "text": "Hawaii Housing Prices on Out-side Demand\n\n\nThe housing market in Hawaii is in a crunch. The state is suffering from a housing shortage that is skyrocketing prices. Many believe the price movement is caused by wealthy out-of-state buyers purchasing property in Hawaii. This is an exciting narrative, but the author claims this is unlikely. From 2010 to 2020, the number of outside buyers has decreased, likely crowded out buy the increase in inside buyers. Housing prices are weakly correlated with the percent change in outside buyers and slightly negatively correlated when examining state-level data. There is a multitude of existing research to back this claim; this pattern is seen in beachy tourist areas to cold climate North American suburbs. However, this does not mean the outside buyers do not have a causal relationship. In fact, housing regulations could be mediated through outside buyers.\nThe article makes two claims, housing prices are unaffected by outiside buyers, and are affected by housing regulations. To analyze the first claim, the housing regulation variable must be isolated. Interest rates, political climate, tourism rates, and inside buyers are back doors and must be controlled. Hawaii’s political leaders are imposing regulations to slow down outside buyers, so the number of outside buyers is a front door, and does not need to be controlled."
+  },
+  {
+    "objectID": "src/writeup/causal-model.html#dag-ii",
+    "href": "src/writeup/causal-model.html#dag-ii",
+    "title": "Causal Model",
+    "section": "2: DAG II",
+    "text": "2: DAG II\n\n\n\nGetting Hired on Weak Social Ties\n\n\nMore than 50 years ago, Mark Granovetter theorized that a person’s weak social ties are more likely to land a job than strong social ties. In Granovetter’s studies, he was only able to prove correlation, however, with current Linked-In data, a new study showed that weak and social relations have a positive effect on getting hires. The article does not explicitly say what variables were controlled for because they conducted an RCT. However, likely influences are education, age, experience, strong social ties, and extroversion. Education and experience have similar back door biases. As education and experience increase, a person becomes more qualified and has more social interactions. Age behaves similarly; as age increases, a person is generally more capable and has more time to create weak social ties. As the number of strong ties increases, the number of weak ties increases as well, and as past data has shown, strong ties also increase the likely hood of getting a job. Extroversion boosts both weak ties and strong ties, but cannot be observed.\nIf this study was created without RCT, the model’s backdoor must be controlled for. Education, age, strong ties, and experience are included in the model. Extroversion is left in the error term because an accurate proxy is unavailable."
+  },
+  {
+    "objectID": "src/writeup/causal-model.html#dag-for-your-program",
+    "href": "src/writeup/causal-model.html#dag-for-your-program",
+    "title": "Causal Model",
+    "section": "3: DAG for your program",
+    "text": "3: DAG for your program\n\n\n\nGetting Hired on Weak Social Ties\n\n\nThe Affordable Care Act (ACA) is a federal and state-funded program designed to help American health by increasing healthcare access and decreasing healthcare insurance. States must voluntarily enroll in the ACA, so measured effects are subject to selection bias. On bias could be the current political climate. If republicans represent a state, then the state’s policy is governed by conservative ideology. As a result, the state is less likely to adopt social programs like Medicaid. Democratic states are more likely to adopt social programs. Political beliefs are also correlated with lifestyle choices that can affect overall health.\nWith the ACA expansion, the federal government offers to pay for 90% of Medicaid costs. If a state has high healthcare costs, they are more likely to enroll in the Medicaid Expansion. Conditions with high healthcare costs are likely to have worse health because there are more low-income people. On average, people with low income have unhealthier lifestyles.\nState and year fixed effects can be used to account for selection bias. The model will include a dummy variable for each state and year the data was collected. This should close the backdoor made by variation in state and year characteristics."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html",
+    "href": "src/writeup/background-and-theory.html",
+    "title": "Background",
+    "section": "",
+    "text": "In the years leading to Medicaid, the rising cost of health insurance was a hot topic, and the need for government assistance was increasing. The United States population was proliferating, and many were from lower-class families. Between 1950 and 1963, hospital costs increased 6.7 percent a year, well above the rate of change in the cost of living. The federal government tried several half-measure programs, such as the Kerr-Mills act, which fell short of its intentions to lower costs for the increasing elderly populous. Disapproval for this Act spread throughout advocacy groups in the United States, and many states were putting off enrollment.\nIn 1965, Title XIX was signed by Lyndon B. Johnson, creating Medicaid, a comprehensive health coverage plan for low-income families. Like its predecessor, Kerr Mills, it uses a partnership between state and federal funds. State participation was not mandatory but greatly incentived. To qualify for Medicaid enrollment, citizens had to fall into two categories. One, they needed to be below the poverty line (by how much varied across states), and two, they needed to have a disability. Examples of qualifying disabilities are having a breast cancer diagnosis, blindness, physical disabilities, or becoming pregnant.\nIn 2010, the Obama Administration signed the Affordable Care Act (ACA) Medicaid Expansion into existence. The Act lowered the qualification categories from two to one. Enrollees only needed incomes up to 138% of the poverty line to receive Medicaid coverage. Initially, 35 states enrolled as well as Washington D.C. Additionally, the ACA provides premium tax credits for private health insurance, eliminates preexisting condition exclusion, and allows young adults to stay on their parent’s health insurance until age 26."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html#inputs",
+    "href": "src/writeup/background-and-theory.html#inputs",
+    "title": "Background",
+    "section": "Inputs",
+    "text": "Inputs\n\nState Funding: Before the expansion states payed up to 50% of Medicare cost. Under ACA the federal government will pay 100% of the cost until 2016 and 90% after that.\nFederal Funding: The federal government will pay 100% of ACA costs until 2016, and 90% after that. Additionally the Government will provide $11 Billion in funding to Federally Qualified Health Centers (FQHC).\nHigh Uninsurance Rate: The proportion of Americans without health insurance to with health insurance. Before 2014, uninsurance was at its highest (18 percent).\nHigh health insurance cost: Health Insurance cost has been increasing dramatically as Americans grow with age. The high cost is a motivator for the ACA expansion.\nState Politics: On average, democratic starts are more likely to enroll in the ACA expansion, and republican states are less likely.\nSupreme Count Decision: The Supreme court ruled that it is unconstitutional to make the ACA expansion mandatory for states, instead, states can voluntarily opt in."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html#activities",
+    "href": "src/writeup/background-and-theory.html#activities",
+    "title": "Background",
+    "section": "Activities",
+    "text": "Activities\n\nACA Starts in 2014: The ACA was signed and put into partial effect by President Obama in 2010. In 2014 the ACA went into full effect.\nStates Enroll in ACA: States can opt in or out of ACA expansion.\nIncrease in Medicaid Coverage: Under the ACA, all Americans below 138% FPL are allowed access to Medicaid.\nIncrease Private Coverage: The ACA lowers cost barriers for new and existing private health insurance holders.\nEliminate Preexisting Condition Exclusion: Private health insurance companies cannot decline individuals because of preexisting conditions.\nIncrease Dependency Age: The ACA mandates that private insurance companies cannot drop dependents off of parents health insurance policies until age 26.\nPremium Tax Credits: Americans between 400% and 138% FPL, can receive premium tax credits to reduce private health insurance costs.\nDistribute Federal Funding to FQHCs: $11 billion in federal funding is to be dispersed between FQHCs across expansion and non-expansion states."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html#outputs",
+    "href": "src/writeup/background-and-theory.html#outputs",
+    "title": "Background",
+    "section": "Outputs",
+    "text": "Outputs\n\nStates Opt Out of ACA: States can chose to enroll in ACA expansion.\nStates Enroll in ACA: States can choose not to enroll in ACA expansion.\nNon-expansion Healthcare Demand: A spillover effect from increase healthcare quantity demanded in expansion states will slightly increase quantity demanded in non-expansion states.\nCoverage Access Increases in Expansion States: More low-income people have access to affordable healthcare insurance in expansion states.\nPatients Increase in Expansion States: Due to a relative decrease in healthcare cost, the number of patients will increase in expansion states.\nBetter Medical Delivery methods: Federal Funding will initiate more medical research to develop better medical delivery methods."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html#outcomes",
+    "href": "src/writeup/background-and-theory.html#outcomes",
+    "title": "Background",
+    "section": "Outcomes",
+    "text": "Outcomes\n\nHealth Insurance Cost Decreases: The out-of-pocket costs Americans pay for healthcare will fall.\nUninsurance Rate Decreases: The increase in health insurance availability will cause the number of uninsured people to fall.\nHealthcare Revenue Increases: From an increased demand in healthcare and an increase in federal funding, revenue will increase for healthcare companies.\nHealthcare Quality Increases: Additional funding and demand will boost the quality of healthcare.\nHealthcare Supply Increase: As a result of excess demand, the supply of healthcare will increase.\nAmerican Health Increases: More Americans have the means to receive healthcare including preventative treatment."
+  },
+  {
+    "objectID": "src/writeup/background-and-theory.html#diagram",
+    "href": "src/writeup/background-and-theory.html#diagram",
+    "title": "Background",
+    "section": "Diagram",
+    "text": "Diagram\n\n\n\nLogic model"
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html",
+    "href": "src/writeup/threats-to-validity.html",
+    "title": "Threats to Validity",
+    "section": "",
+    "text": "Feel free to remove any/all of the placeholder text and instructions here!"
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#internal-validity",
+    "href": "src/writeup/threats-to-validity.html#internal-validity",
+    "title": "Threats to Validity",
+    "section": "Internal validity",
+    "text": "Internal validity\n\nSelection: 1\nAttrition: 0\nMaturation: 1\nSecular trends: 1\nSeasonality: NA\nTesting: NA\nRegression to the mean: 1\nMeasurement error: 0\nTime frame of study: 0\nHawthorne effects: 0\nJohn Henry effects: 0\nSpillovers: 1\nIntervening events: 0\n\nFinal score: 5"
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#general-summary",
+    "href": "src/writeup/threats-to-validity.html#general-summary",
+    "title": "Threats to Validity",
+    "section": "General Summary:",
+    "text": "General Summary:\nSchultz Study was designed to measure the Progresa program’s effect on underprivileged children’s school enrollment and inequality. The study used a difference-and-difference model to estimate the treatment effect. The selection process randomly finds economically and geographically disadvantaged families from Mexico’s lower-class population. The participants (treatment group) are offered education subsidies for children in grades 1st through 9th. The enrollment status is then compared to non-participants (control) in the lower class population. The study results found that Progresa students have a higher trending enrollment rate than the control and a significantly higher enrollment rate in the 6th grade. Additionally, the program decrease inequality."
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#external-validity",
+    "href": "src/writeup/threats-to-validity.html#external-validity",
+    "title": "Threats to Validity",
+    "section": "External validity",
+    "text": "External validity\nThere are no blatant offenses to external validity in this study. However, if the intended use of this study is for America or other countries besides Mexico, then it may not generalize well. Mexico’s noneducational rate is significantly higher than the U.S., so that the study may have less impact on more modern countries. Other differences, such as existing policies between countries, can also affect external validity. Additionally, the study uses survey data for the control group, which may not accurately represent the population."
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#construct-validity",
+    "href": "src/writeup/threats-to-validity.html#construct-validity",
+    "title": "Threats to Validity",
+    "section": "Construct validity",
+    "text": "Construct validity\nThe study uses the difference-and-difference model combined with random selection, which should eliminate back door bias. The control group is in a different area than the participants, so the spillover effect should be minimal. However, the study does mention that the enrollment variable is subject to endogeneity. Child labor supply is an unobserved factor that is correlated with school enrollment. If child labor is left in the error term, the model could be biased. The study uses an IV to reduce bias, but admittedly bias is hard to diminish completely. Another threat to internal validity is that the Hawthorne Progresa participants are incentivized to produce good results for the study, so they keep getting subsidies."
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#internal-validity-1",
+    "href": "src/writeup/threats-to-validity.html#internal-validity-1",
+    "title": "Threats to Validity",
+    "section": "Internal validity",
+    "text": "Internal validity\n\nSelection: 1\nAttrition:\nMaturation: 1\nSecular trends: 1\n\nSeasonality:\n\nTesting:\nRegression to the mean:\nMeasurement error: 0\nTime frame of study: 1\nHawthorne effects: 1\nJohn Henry effects: 1\nSpillovers: 0\nIntervening events: 1\n\nFinal score: 7"
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#general-summary-1",
+    "href": "src/writeup/threats-to-validity.html#general-summary-1",
+    "title": "Threats to Validity",
+    "section": "General Summary:",
+    "text": "General Summary:\nThis study examines the effect of Sesame Street on educational outcomes. In 1969 Sesame Street became the first large-scale educational T.V show broadcast to the country. However, households that were out of range of broadcasting towers could not view it. The present student exploits this by creating an interaction variable for children within a broadcasting area who were in preschool during Sesame Street’s premiere. While controlling for time variants, the study found that Sesame Street significantly increases educational advantage."
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#external-validity-1",
+    "href": "src/writeup/threats-to-validity.html#external-validity-1",
+    "title": "Threats to Validity",
+    "section": "External validity",
+    "text": "External validity\nThe study mentions that the primary interaction variable does not measure the average treatment effect. Instead, it identifies the relationship between the intent-to-treat and education outcome. This measurement care can lead to bias in the model."
+  },
+  {
+    "objectID": "src/writeup/threats-to-validity.html#construct-validity-1",
+    "href": "src/writeup/threats-to-validity.html#construct-validity-1",
+    "title": "Threats to Validity",
+    "section": "Construct validity",
+    "text": "Construct validity\nThis study accounted for several threats to construct validity. The analysis accounts for selection bias by arguing that broadcasting tower placement is unrelated to whether a child has access to Sesame Street. However, the study does not account for family mobility. Subjects that move out of a treatment county and into a control county or vice versa create bias in the model. Besides mobility, there may be inter-group mingling among children. This could create a spillover effect, in which treatment children influence control children’s behavior.\nTo account for variations in time, the study’s model uses time-fixed-effects. However, the fixed effect may not fully account for policy changes. The study mentions that it uses a dummy variable for years after the Food Stamp Act of 1964 but makes no attempt to account for Medicaid in 1967."
+  }
+]

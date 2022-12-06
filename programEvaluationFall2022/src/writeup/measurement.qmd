@@ -1,0 +1,194 @@
+---
+title: "Measurement"
+---
+
+
+**Feel free to remove any/all of the placeholder text and instructions here!**
+
+# 1: Measurement and abstraction for full-day kindergarten
+
+Article about half-day vs. full-day kindergarten in Utah: <https://archive.sltrib.com/story.php?ref=/news/ci_13164697>. The article is 10 years old, and half-day kindergarten still remains standard practice in most Utah school districts.
+
+## Possible outcomes
+
+-   Better Achievements
+
+-   Intellectual Advantage
+
+## Outcome 1: Better Achievements
+
+List of all the possible attributes of the outcome:
+
+-   High Course Grades
+
+-   Less Repeating Grades
+
+-   More Extracurricular Activities
+
+Better Achievements is hard to measure because of its inherit ambiguity, so three measurable proxy variables are suggested. Course grades and the number of repeating grades both measure academic achievement. If the full-day kindergarten program succeeds, then a student who had full days of kindergarten will, on average, have higher grades and fewer repeating grades than an average student with half-day kindergarten. Additionally, we can measure the effects across time if multiple years are available.
+
+The number of extracurricular activities measures outside school achievement. While some activities are more time-consuming than others, the number of activities should generally indicate a student's success.
+
+### Attribute 1: Course Grade
+
+-   Measurable definition: The GPA of a student in a given year.
+
+-   Ideal measurement: The GPA of a randomly selected student in a given year for all years K-12.
+
+-   Feasible measurement: The average GPA for self-selecting schools/counties in a given year for all years available.
+
+-   Measurement of program effect: The difference in average GPA during a given year between schools/counties with full-day and half-day kindergarten. This data is collected across multiple years, both before and after the full-day kindergarten program start date. A difference-and-difference model can measure the effect of being a full-day kindergarten school/county after the program has been implemented.
+
+### Attribute 2: Repeating Grades
+
+-   Measurable definition: The number of grades repeated for a student in grades K-12.
+
+-   Ideal measurement: A boolean equal to 1 if a randomly selected student repeated a grade in a given year and equal to 0 if not.
+
+-   Feasible measurement: The percent of students in a school/county that had to repeat a grade in a given year.
+
+-   Measurement of program effect: The difference in the percent of students that had to repeat a grade between self-selecting schools with full-day and half-day kindergarten during a given year. The difference measures for multiple years before and after the full-day kindergarten program start date. The difference is compared across all available years.
+
+### Attribute 3: Number of Extracurricular Activities
+
+-   Measurable definition: The total number of extracurricular activities per student in one year.
+
+-   Ideal measurement: The total number of extracurricular activities from a randomly selected student per year for 12 years.
+
+-   Feasible measurement: The percent of students in a particular school/county participating in an extracurricular activity in a given year for less than 12 years.
+
+-   Measurement of program effect: The difference in percent number of students with at least one extracurricular activity between schools/counties with full-day and half-day kindergarten, and the differences across time.
+
+## Outcome 2: Intellectual Advantage
+
+List of all the possible attributes of the outcome:
+
+-   Standardized Test Scores
+
+-   Advanced Courses
+
+-   GPA and Advanced Courses
+
+Because intellectual advantage mediates achievement, there are many overlapping characteristics, one of which is GPA. A person with more intellectual power can obtain a higher GPA than someone with less. However, if a person has a high GPA and takes advanced courses, this is perhaps a better measure of intellectual advantage. Standardized tests are also designed to separate the intellectual from the non-intellectual.
+
+### Attribute 1: Standardized Test Scores
+
+-   Measurable definition: A student's score on a particular standardized test.
+
+-   Ideal measurement: A randomly selected student's test score on a particular test during a given year.
+
+-   Feasible measurement: The average standardized test score of a school/county during a given year.
+
+-   Measurement of program effect: The difference in standardized test scores between schools/counties with full-day and half-day kindergarten during a given year. The difference is calculated across all available years, both before and after the full-day kindergarten program is implemented. The program effect is the average difference between the full-day and half-day kindergarten schools after the program was implemented.
+
+### Attribute 2: Advanced Courses
+
+-   Measurable definition: The number of advanced courses (TAG, AP, etc.) a student is enrolled in during a given year.
+
+-   Ideal measurement: The number of advanced courses a randomly selected student is enrolled in during a given year for all years K-12.
+
+-   Feasible measurement: The percent of students enrolled in advanced courses offered by a school/county in a given year.
+
+-   Measurement of program effect: The difference in percent advanced between schools/counties in a given year. This difference is measured across multiple years, if possible, and compared. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts minus the difference between full-day and half-day kindergarten schools/counties before the program starts.
+
+### Attribute 3: GPA and advanced courses
+
+-   Measurable definition: The interaction of a student's GPA and the number of advanced courses enrolled during a given year.
+
+-   Ideal measurement: The interaction of a randomly selected student's GPA and the number of advanced courses taken in a given year for all K-12 years.
+
+-   Feasible measurement: The interaction of a self-selected school's average GPA and percent of students enrolled in advanced courses in a given year for all years available.
+
+-   Measurement of program effect: The difference in the numeric value represented by the interaction of GPA and advance enrollment between schools/counties with full-day and half-day kindergarten. The difference is measured for as many years as possible, both before and after the program is initiated. The program effect is the average difference between full-day and half-day kindergarten schools/counties after the program starts, minus the difference between full-day and half-day kindergarten schools/counties before the program starts.
+
+# 2: Measurement and abstraction for ACA Medicaid Expansion
+
+## Possible outcomes
+
+-   Health
+
+-   Healthcare Access
+
+## Outcome 1: Health
+
+List of all the possible attributes of the outcome:
+
+-   Sickness
+
+-   Disability
+
+-   Physical Activity
+
+Health status can be split into two categories, sickness and disability. Sickness covers diseases, viruses, cancer, or the common cold. Disability covers physical and mental aliments. The ACA aims to increase coverage for both, but another essential part of health is taking necessary steps to avoid sickness and disability. Physical activity measures how badly people want to stay healthy.
+
+### Attribute 1: Sickness
+
+-   Measurable definition: The time an individual is sick in a year.
+
+-   Ideal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.
+
+-   Feasible measurement: The percent of days a person was sick for a given year.
+
+-   Measurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.
+
+### Attribute 2: Disability
+
+-   Measurable definition: If a person has a disability during a given year.
+
+-   Ideal measurement: The total number of disabilities a person has weighted by the intensity of the disability in a given year.
+
+-   Feasible measurement: A boolean equal to one if a person has one or more disabilities and equal to zero if a person does not have any disabilities during a given year.
+
+-   Measurement of program effect: The difference in the percent of people with disabilities between enrollment states and non-enrollment states. The average difference is measured from 2005 to 2020. The program effect is the average difference in percent disability between a person in an expansion state versus a non-expansion state after 2013 minus the average disability difference before 2013.
+
+### Attribute 3: Physical Activity
+
+-   Measurable definition: Time per day a person spends doing physical activities.
+
+-   Ideal measurement: The distribution of time spent doing physical activity for each day of a year.
+
+-   Feasible measurement: The average number of hours spent doing physical activity over a year.
+
+-   Measurement of program effect: The difference in the hours spent doing physical activity between an individual in an expansion and non-expansion state. This data is collected from 2015 to 2020. The program effect is the average difference in physical activity hours between expansion and non-expansion states after 2013, minus the average difference in physical activity hours before 2013
+
+## Outcome 2: Healthcare Access
+
+List of all the possible attributes of the outcome:
+
+-   Uninsurance Rate
+
+-   Healthcare Utilization
+
+-   Healthcare Supply
+
+One of the signifying reasons for the Affordable Care Act was to increase the number of Americans with access to affordable healthcare. The uninsurance rate is the proportion of people that do not have coverage. If healthcare access increases, then uninsurance rate is expected to fall. As for insured people, the increasing healthcare demand will strain the limited healthcare supply. It may be hard for individuals to access healthcare specialists unless utilization is low or supply is high. This is why healthcare supply and utilization are essential to monitor.
+
+### Attribute 1: Uninsurance Rate
+
+-   Measurable definition: The percent of Americans that are not covered by healthcare insurance during a given year.
+
+-   Ideal measurement: The total number of people that do not have health insurance divided by the population in each state for all years between 2005 and 2020.
+
+-   Feasible measurement: The percent of people for the BRFSS dataset that do not have healthcare coverage for all years between 2005 and 2020.
+
+-   Measurement of program effect: The difference in percent uninsured between expansion and non-expansion states in a given year. This is repeated for all years between 2005 and 2020. The program effect is the average difference in the percent of people uninsured between expansion and non-expansion states after 2013, minus the average difference in uninsurance before 2013.
+
+### Attribute 2: Healthcare Utilization
+
+-   Measurable definition: The total time spent utilizing healthcare an individual made in a given year.
+
+-   Ideal measurement: An individual's average healthcare utilization in a given year.
+
+-   Feasible measurement: The average number of trips to a doctor an individual made in a given year from the BRFSS data set.
+
+-   Measurement of program effect: The difference in number of individual doctor visits between expansion and non-expansion states. This is repeated for all years between 2005 and 2020. The program effect is the average difference in average doctor visits between expansion states and non-expansion states after 2013 minus the average difference in doctor visits before 2013.
+
+### Attribute 3: Healthcare Supply
+
+-   Measurable definition: The healthcare supply during a given year.
+
+-   Ideal measurement: The total healthcare supply differentiated by type for each state in all years between 2005 and 2020.
+
+-   Feasible measurement: The total number of doctors in a given state relative to the state population during a given year for all years between 2005 and 2020.
+
+-   Measurement of program effect: The difference in the number of doctors between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the number of doctors between expansion and non-expansion after 2013 minus the average difference in doctors before 2013.
