@@ -1,6 +1,0 @@
----
-title: "test"
-editor: visual
----
-
-hello world

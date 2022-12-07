@@ -3,15 +3,7 @@ title: "Background"
 editor: visual
 ---
 
-# 1: Program background and purpose
-
-In the years leading to Medicaid, the rising cost of health insurance was a hot topic, and the need for government assistance was increasing. The United States population was proliferating, and many were from lower-class families. Between 1950 and 1963, hospital costs increased 6.7 percent a year, well above the rate of change in the cost of living. The federal government tried several half-measure programs, such as the Kerr-Mills act, which fell short of its intentions to lower costs for the increasing elderly populous. Disapproval for this Act spread throughout advocacy groups in the United States, and many states were putting off enrollment.
-
-In 1965, Title XIX was signed by Lyndon B. Johnson, creating Medicaid, a comprehensive health coverage plan for low-income families. Like its predecessor, Kerr Mills, it uses a partnership between state and federal funds. State participation was not mandatory but greatly incentived. To qualify for Medicaid enrollment, citizens had to fall into two categories. One, they needed to be below the poverty line (by how much varied across states), and two, they needed to have a disability. Examples of qualifying disabilities are having a breast cancer diagnosis, blindness, physical disabilities, or becoming pregnant.
-
-In 2010, the Obama Administration signed the Affordable Care Act (ACA) Medicaid Expansion into existence. The Act lowered the qualification categories from two to one. Enrollees only needed incomes up to 138% of the poverty line to receive Medicaid coverage. Initially, 35 states enrolled as well as Washington D.C. Additionally, the ACA provides premium tax credits for private health insurance, eliminates preexisting condition exclusion, and allows young adults to stay on their parent's health insurance until age 26.
-
-# 2: Program theory
+# 1: Program theory
 
 The ACA Medicaid expansion program is designed to increase United States citizens' relative health. This is theoretically accomplished by making health insurance more affordable for people below 400% FPL, expanding Medicaid to cover all adults with incomes below 138% FPL, and supporting medical delivery advancements to lower general health care costs.
 
@@ -23,7 +15,7 @@ The results of the 1970s RAND health experiments suggest that as the price of he
 
 ![Impact theory](figures/impact-theory.jpg)
 
-# 3: Logic model
+# 2: Logic model
 
 ## Inputs
 
@@ -67,7 +59,7 @@ The results of the 1970s RAND health experiments suggest that as the price of he
 
 ![Logic model](figures/ACA-Expansion-logic-chart.jpg)
 
-# 4: Analysis
+# 3: Analysis
 
 I expect the ACA expansion implementation will follow the logic model. The logic is routed in basic economic theory and supported by the RAND healthcare experiment, which most health economist uses.
 

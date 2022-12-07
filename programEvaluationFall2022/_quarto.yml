@@ -5,19 +5,21 @@ website:
   title: "Medicaid Final Project"
   navbar:
     left:
-      - file: src/writeup/background-and-theory.qmd
+      - file: index.qmd
         text: "Write-Up"
   sidebar: 
     - title: "Write-Up"
       contents: 
         - text: "Introduction/Overview"
-          file: src/writeup/background-and-theory.qmd
+          file: index.qmd
         - text: "Program Theory and Implementation"
-          file: src/writeup/measurement.qmd
+          file: src/writeup/theory-and-implementation.qmd
         - text: "Outcome and Causation"
-          file: src/writeup/causal-model.qmd
+          file: src/writeup/outcome-and-causation.qmd
         - text: "Data and Methods"
-          file: src/writeup/threats-to-validity.qmd
+          file: src/writeup/data-and-methods.qmd
+        - text: "Synthetic Analysis"
+          file: src/synthetic-analysis.qmd
 
         
 format:
