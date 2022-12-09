@@ -19,7 +19,9 @@ website:
         - text: "Data and Methods"
           file: src/writeup/data-and-methods.qmd
         - text: "Synthetic Analysis"
-          file: src/synthetic-analysis.qmd
+          file: src/syntheticData/synthetic-analysis.qmd
+        - text: "Synthetic Analysis (with code)"
+          file: src/syntheticData/synthetic-analysis-with-code.qmd
 
         
 format:

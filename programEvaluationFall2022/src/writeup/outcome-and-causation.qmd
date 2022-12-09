@@ -4,55 +4,7 @@ title: "Measurement"
 
 # 1: Measurement and abstraction for ACA Medicaid Expansion
 
-## Possible outcomes
-
--   Health
-
--   Healthcare Access
-
-## Outcome 1: Health
-
-List of all the possible attributes of the outcome:
-
--   Sickness
-
--   Disability
-
--   Physical Activity
-
-Health status can be split into two categories, sickness and disability. Sickness covers diseases, viruses, cancer, or the common cold. Disability covers physical and mental aliments. The ACA aims to increase coverage for both, but another essential part of health is taking necessary steps to avoid sickness and disability. Physical activity measures how badly people want to stay healthy.
-
-### Attribute 1: Sickness
-
--   Measurable definition: The time an individual is sick in a year.
-
--   Ideal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.
-
--   Feasible measurement: The percent of days a person was sick for a given year.
-
--   Measurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.
-
-### Attribute 2: Disability
-
--   Measurable definition: If a person has a disability during a given year.
-
--   Ideal measurement: The total number of disabilities a person has weighted by the intensity of the disability in a given year.
-
--   Feasible measurement: A boolean equal to one if a person has one or more disabilities and equal to zero if a person does not have any disabilities during a given year.
-
--   Measurement of program effect: The difference in the percent of people with disabilities between enrollment states and non-enrollment states. The average difference is measured from 2005 to 2020. The program effect is the average difference in percent disability between a person in an expansion state versus a non-expansion state after 2013 minus the average disability difference before 2013.
-
-### Attribute 3: Physical Activity
-
--   Measurable definition: Time per day a person spends doing physical activities.
-
--   Ideal measurement: The distribution of time spent doing physical activity for each day of a year.
-
--   Feasible measurement: The average number of hours spent doing physical activity over a year.
-
--   Measurement of program effect: The difference in the hours spent doing physical activity between an individual in an expansion and non-expansion state. This data is collected from 2015 to 2020. The program effect is the average difference in physical activity hours between expansion and non-expansion states after 2013, minus the average difference in physical activity hours before 2013
-
-## Outcome 2: Healthcare Access
+## Outcome: Healthcare Access
 
 List of all the possible attributes of the outcome:
 
@@ -61,6 +13,8 @@ List of all the possible attributes of the outcome:
 -   Healthcare Utilization
 
 -   Healthcare Supply
+
+-   Sickness
 
 One of the signifying reasons for the Affordable Care Act was to increase the number of Americans with access to affordable healthcare. The uninsurance rate is the proportion of people that do not have coverage. If healthcare access increases, then uninsurance rate is expected to fall. As for insured people, the increasing healthcare demand will strain the limited healthcare supply. It may be hard for individuals to access healthcare specialists unless utilization is low or supply is high. This is why healthcare supply and utilization are essential to monitor.
 
@@ -90,16 +44,30 @@ One of the signifying reasons for the Affordable Care Act was to increase the nu
 
 -   Ideal measurement: The total healthcare supply differentiated by type for each state in all years between 2005 and 2020.
 
--   Feasible measurement: The total number of doctors in a given state relative to the state population during a given year for all years between 2005 and 2020.
+-   Feasible measurement: Whether or not an individual words in the healthcare sector.
 
--   Measurement of program effect: The difference in the number of doctors between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the number of doctors between expansion and non-expansion after 2013 minus the average difference in doctors before 2013.
+-   Measurement of program effect: The difference in the percent of healthcare workers between expansion and non-expansion states. This measurement is calculated for all years between 2005 and 2020. The program effect is the average difference in the percent of healthcare workers between expansion and non-expansion after 2013 minus the average difference in doctors before 2013.
+
+### Attribute 4: Sickness
+
+-   Measurable definition: The time an individual is sick in a year.
+
+-   Ideal measurement: The total time an individual is sick, weighted by the intensity of the sickness during a given year.
+
+-   Feasible measurement: The percent of days a person was sick for a given year.
+
+-   Measurement of program effect: The difference in the percent of days sick between a person in an expansion state and a non-expansion state. The average difference is taken from 2005 to 2020. The program effect is the average difference in percent sick between a person in an enrollment state versus not in an enrollment state after 2013 minus the average difference before 2013.
 
 # 2: Causal Model
 
-![Getting Hired on Weak Social Ties](figures/aca_dag.png){fig-alt="Uninsurance on ACA Medicaid Expansion"}
+![Uninsurance on Affordable Affordable care Act](figures/aca_dag.png){fig-alt="Uninsurance on ACA Medicaid Expansion"}
 
-The Affordable Care Act (ACA) is a federal and state-funded program designed to help American health by increasing healthcare access and decreasing healthcare insurance. States must voluntarily enroll in the ACA, so measured effects are subject to selection bias. On bias could be the current political climate. If republicans represent a state, then the state's policy is governed by conservative ideology. As a result, the state is less likely to adopt social programs like Medicaid. Democratic states are more likely to adopt social programs. Political beliefs are also correlated with lifestyle choices that can affect overall health.
+## Causal Theory
 
-With the ACA expansion, the federal government offers to pay for 90% of Medicaid costs. If a state has high healthcare costs, they are more likely to enroll in the Medicaid Expansion. Conditions with high healthcare costs are likely to have worse health because there are more low-income people. On average, people with low income have unhealthier lifestyles.
+The Affordable Care Act (ACA) is a federal and state-funded program designed to help American health by increasing healthcare access and decreasing healthcare insurance. States must voluntarily enroll in the ACA, so measured effects are subject to selection bias. The selection is likely due to fundamental differences between states and years. With the ACA expansion, the federal government offers to pay for 90% of Medicaid costs. If a state has high healthcare costs, they are more likely to enroll in the Medicaid Expansion.
 
-State and year fixed effects can be used to account for selection bias. The model will include a dummy variable for each state and year the data was collected. This should close the backdoor made by variation in state and year characteristics.
+A difference-and-difference (DD) model can be used to analyze the causal effects of ACA enrollment on Healthcare access. The DD will compare four groups: pre-treatment expansion states, pre-treatment non-expansion states, post-treatment expansion states, and post-treatment expansion stats.
+
+## Hypothesis
+
+From economic tuition, it is estimated that the causal effect of the ACA Medicaid Expansion will decrease the uninsurance rate, increase healthcare utilization, increase healthcare supply, and decrease sickness.

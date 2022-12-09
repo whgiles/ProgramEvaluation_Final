@@ -1,0 +1,317 @@
+---
+title: "Synthetic Analysis"
+execute: 
+  warning: false
+---
+
+In this section, I create synthetic data. The linear relationships discussed in this section are not empirical. Instead, they are based on economic intuition. Building econometric models around synthetic data are essential because it reduces intentional/non-intensional p-hacking by setting up a pipeline for the data before actual data is explored. Since the model is pre-built, all the researchers must set `aca_data` equal to the real clean dataset, and the variables' names should match (see bullet points below).
+
+-   `year`: (numeric) the year observation was recorded. \[i.e. 2012\]
+
+-   `FIPS`: (numeric) the FIPS code corresponding to U.S. state \[i.e. 34\]
+
+-   `sick_days`: (numeric) the number of sick days the given individual had in year t
+
+-   `unins`: (numeric) a binary variable equal to one if an individual does not have health insurance
+
+-   `trips`: (numeric) number of trips to the doctor for a given individual in the year t
+
+-   `hcWorker`: (numeric) binary variable equal to one if the given individual works in healthcare
+
+## Creating Fake Data
+
+Creating synthetic data requires the selection of many hyper-parameters. For this process, a sample of 300,000 is selected, an adequate sample size to represent the united states. Next, the distribution of the variables is selected. It is assumed in this analysis that the data is pooled-cross-sectional and was the collection process is stratified random sampling. For this reason, `year` and `FIPS` have a uniform distribution. `years` is limited to a range of 2005 to 2020 because the ACA expansion did not start until 2014. Next the base values ($\alpha$) are selected. `sick_days` is a truncated normal distribution ($\mu$ = 7, $\sigma$ = 5) with a lower bound at 0. This lower bound is selected because negative values are impossible. `unins` ($\phi = .5$) and `hsWorker` ($\phi = .1$) both have Bernoulli distributions because they are binary. There is little intuitive information in the posterior of `unins`, so the probability parameter is .5, whereas a bit more is known about `hsWorker`. Finally, `trips` is given a beta distribution because it is likely skewed to the right. It is rescaled (using `rescale()`) between -2 and 30. I allowed negative numbers here to avoid truncation errors when I add in my linear relationships. \[side note I account for truncation here and not with `sick_days` just for my learning\]
+
+```{r, message=F}
+library(broom)
+library(ggplot2)
+library(dplyr)
+library(sn)
+library(Rlab)
+library(Rlab)
+library(truncnorm)
+library(scales)
+library(fixest)
+library(modelsummary)
+library(tidyr)
+library(caret)
+options(dplyr.summarise.inform = FALSE)
+```
+
+```{r, message=F}
+n <- 300000
+years <- c(2005,2020)
+set.seed(1234)
+aca_data <- tibble(
+  id = 1:n,
+  year = runif(n, min = years[1], max = years[2]) %>% 
+    round(0),
+  t = year - 2010,
+  FIPS = runif(n, min = 1, max = 56) %>% 
+    round(0),
+  
+  sick_days_base = rtruncnorm(n, a = 0, b = Inf, mean = 7, sd = 5)%>% 
+    round(0), # median should be around 7
+  unins_base = rbern(n, .5), # Bernoulli Distribution in R
+  trips_base = rbeta(n, shape1 = 2, shape2 = 10) %>% 
+    rescale(to=c(-2,30)), # testing theory that base data should not be truncated at 0
+  hcWorker_base = rbern(n, prob = .1) # Does this have to be .5?
+) 
+```
+
+Next, I derive `aca` and `post`. As seen in equation 1, `aca` is an indicator variable equal to one if the state is enrolled in the ACA Medicaid Expansion (this is time-invariant). `post` is another indicator variable equal to 1 if the observation was recorded after 2014.
+
+In addition to these variable state ($\sigma_s$) and year ($\gamma$) fixed effects are made. To create state effects, the `FIPS` column is spread into a one-hot vector for each observation and parsed as a matrix. Then the dot product is found between the one-hot matrix (i x state) and a coefficient vector (State x 1). This is redone for each dependent variable in the analysis. The year fixed effects are made by creating a `t` variable equal to `year` minus 2005. Times series drift is created by multiplying `t` by the coefficient selected for each dependent variable. In the "Adding Variable Relationship" section, you will see how these fixed effects add to the dependent variable.
+
+let S be the set of states the expanded medicaid, and T be a set of years after 2016\
+$$  
+ACA(State) = 
+\begin{cases}
+ 1, \space state \in S \\
+  0, \space state \notin S
+\end{cases}
+$$ {#eq-1}\
+$$  
+Post(Year) = 
+\begin{cases}
+ 1, \space Year \in T \\
+  0, \space Year \notin T
+\end{cases}
+$$ {#eq-2}\
+$$    
+Y_i = \beta_0 + \beta_1 Post_t + \beta_2 ACA_s + \beta_3 Post_t*ACA_s + \sigma_s + \gamma t + \epsilon_{i,t}
+$$ {#eq-3}
+
+```{r, message=F}
+expansion_states <- c(4,5,6,8,9,10,11,15,17,19,21,24,25,26,27,
+                     32,33,34,35,36,38,39,41,44,50,53,54)
+not_states <- c(7,14,43,52)
+
+aca_data <- aca_data %>%
+  filter(!FIPS %in% not_states) %>%
+  mutate(aca = as.factor(as.numeric(FIPS %in% expansion_states))) %>%
+  mutate(post = ifelse(year >= 2014,1,0)) 
+```
+
+```{r setting up for fixed effects, message=F}
+aca_data <- aca_data %>%
+  # for drift
+  mutate(t = year - years[1])
+  
+# for state fixed effects
+state.one_hot <- select(aca_data,id, FIPS) %>%
+  mutate(value = 1) %>% 
+  spread(FIPS, value, fill = 0) %>%
+  select(-id)
+
+```
+
+## Adding Variable Relationships
+
+### Sick Days
+
+$$
+SickDays_i = \alpha_1 + .01(Post_t) + .05 (ACA_s) -.2 (Post_t*ACA_s) + \sigma_s + .03 (t) + \epsilon_{i,t}
+$$
+
+```{r, message=F}
+n <- nrow(aca_data)
+set.seed(1234)
+aca_data <- aca_data %>%
+  mutate(beta_1 = rnorm(n, mean = .01, sd = .3)) %>%
+  mutate(beta_2 = rnorm(n, mean = .05, sd = .04)) %>%
+  mutate(beta_3 = rnorm(n, mean = -.2, sd = .0001)) %>%
+  mutate(sick_days = sick_days_base + beta_1*post + beta_2*as.numeric(aca) + beta_3 * as.numeric(post)*as.numeric(aca)) 
+```
+
+```{r, message=F}
+states_n <- length(unique(aca_data$FIPS))
+
+set.seed(1234)
+state_effects <- as.matrix(state.one_hot) %*% runif(states_n, min = -2, max = 2)
+
+aca_data$sick_days <- aca_data$sick_days + state_effects + .03 * aca_data$t
+```
+
+### Uninsurance
+
+$$  
+Uninsurance_i = \alpha_2  -.1(Post_t) + .0005 (ACA_s) -.3(Post_t*ACA_s) + \sigma_s -.03 (t) + \epsilon_{i,t}
+$$
+
+```{r, message=F}
+aca_data <- aca_data %>%
+  mutate(beta_1 = rnorm(n, mean = -.1, sd = .3)) %>%
+  mutate(beta_2 = rnorm(n, mean = .0005, sd = .04)) %>%
+  mutate(beta_3 = rnorm(n, mean = -.3, sd = .0001)) %>%
+  mutate(unins = unins_base + beta_1*post + beta_2*as.numeric(aca) + beta_3 * as.numeric(post)*as.numeric(aca)) 
+```
+
+```{r}
+set.seed(1234)
+state_effects <- as.matrix(state.one_hot) %*% runif(states_n, min = -.02, max = .02)
+
+aca_data$unins <- aca_data$unins + state_effects + -.03 * aca_data$t
+aca_data$unins <- ifelse(aca_data$unins > .5, 1, 0)
+```
+
+### Trips to Doctor
+
+$$  
+DoctorTrips_i = \alpha_3  -2(Post_t) +  .001(ACA_s) +3(Post_t*ACA_s) + \sigma_s + .4 (t) + \epsilon_{i,t}
+$$
+
+```{r, message=F}
+aca_data <- aca_data %>%
+  mutate(beta_1 = rnorm(n, mean = -2, sd = 2)) %>%
+  mutate(beta_2 = rnorm(n, mean = .001, sd = 4)) %>%
+  mutate(beta_3 = rnorm(n, mean = 3, sd = .0001)) %>%
+  mutate(trips = trips_base + beta_1*post + beta_2*as.numeric(aca) + beta_3 * as.numeric(post)*as.numeric(aca)) 
+```
+
+```{r}
+set.seed(1234)
+state_effects <- as.matrix(state.one_hot) %*% runif(states_n, min = -2, max =5)
+
+aca_data$trips <- aca_data$trips + state_effects + .4 * aca_data$t
+aca_data$trips <- ifelse(aca_data$trips < 0, 0, aca_data$trips)
+```
+
+### Health Care Worker
+
+$$  
+HealthCareWorker_i = \alpha_4  -.01(Post_t) + .09 (ACA_s) -.05(Post_t*ACA_s) + \sigma_s + .002 (t) + \epsilon_{i,t}
+$$
+
+```{r, message=F}
+aca_data <- aca_data %>%
+  mutate(beta_1 = rnorm(n, mean = -.01, sd = .2)) %>%
+  mutate(beta_2 = rnorm(n, mean = .09, sd = .004)) %>%
+  mutate(beta_3 = rnorm(n, mean = .05, sd = .0001)) %>%
+  mutate(hcWorker = hcWorker_base + beta_1*post + beta_2*as.numeric(aca) + beta_3 * as.numeric(post)*as.numeric(aca)) %>%
+  mutate(hcWorker = ifelse(hcWorker > .5, 1, 0))
+```
+
+```{r}
+set.seed(1234)
+state_effects <- as.matrix(state.one_hot) %*% runif(states_n, min = -.02, max =.05)
+
+aca_data$hcWorker <- aca_data$hcWorker + state_effects + .002 * aca_data$t
+aca_data$hcWorker <- ifelse(aca_data$hcWorker < 0, 0, aca_data$hcWorker)
+```
+
+## Exploratory Anlaysis
+In this section, the variable relationships are explored. Since this is synthetic data, the authenticity of the intuitive relationship is in question. However, when real data is used, these graphs can be interpreted. For each variable, a time plot differentiated by treatment group is examined. This plot is essential when analyzing parallel trends for difference-and-difference analysis.
+
+### Sick Days
+The distribution of `sick_days` is skewed right with a mean of 9 days per year.
+
+```{r, message=F}
+ggplot(aca_data) + 
+  geom_histogram(aes(x = sick_days), bins = 30, colour = "black", fill = "grey") +
+  labs(title = "Sick Days Distribution", x = "Sick Days") 
+```
+
+The data below shows that both groups are gradually drifting upwards. The treatment group experienced a sharp drop in 2014 and then resumed its slow upwards drift.
+```{r, message=F}
+parallel.sickdays <- aca_data %>%
+  group_by(year, aca) %>%
+  summarise(avg_sick = mean(sick_days))
+
+ggplot(parallel.sickdays, mapping = aes(x=year, y=avg_sick, color = aca)) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 2014) +
+  labs(title = "Average Sick Days by Expansion Status", x = "Year", y="Average Sick Days")
+```
+
+### Uninsurance
+
+The treatment and control uninsurance rates are relatively similar in the pretreatment period. After the treatment, they both experience a radical decrease in uninsurance rates. However, the treatment group decreased more.
+
+```{r, message=F}
+parallel.unins <- aca_data %>%
+  group_by(year, aca) %>%
+  summarise(avg_unins = mean(unins))
+
+ggplot(parallel.unins, mapping = aes(x=year, y=avg_unins, color = aca)) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 2014) +
+  labs(title = "Uninsurance Rate by Expansion Status", x = "Year", y="Uninsurance Rate")
+```
+
+### Trips to Doctor
+The distribution of doctor trips has a larger cut off at 0. This is commonly seen in truncated data.
+```{r, message=F}
+ggplot(aca_data) + 
+  geom_histogram(aes(x = trips), bins = 30, colour = "black", fill = "grey") +
+  labs(title = "Doctor Trips Distribution", x = "Trips") 
+```
+
+From the trends seen below, the treatment and control groups are similar in the pretreatment period until a significant increase in the treatment group after the treatment period. There also seems to be a significant positive drift in both groups
+```{r, message=F}
+parallel.unins <- aca_data %>%
+  group_by(year, aca) %>%
+  summarise(avg_trips = mean(trips))
+
+ggplot(parallel.unins, mapping = aes(x=year, y=avg_trips, color = aca)) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 2014) +
+  labs(title = "Average Doctor Trips by Expansion Status", x = "Year", y="Average Trips")
+```
+
+### Health Care Worker
+
+The percentage of healthcare workers is similar between the treatment and control groups during the pretreatment period. After the treatment, there is a significant increase in the number of healthcare workers in the treatment group.
+```{r, message=F}
+parallel.unins <- aca_data %>%
+  group_by(year, aca) %>%
+  summarise(avg_hc = mean(hcWorker))
+
+ggplot(parallel.unins, mapping = aes(x=year, y=avg_hc, color = aca)) +
+  geom_line() +
+  geom_point() +
+  geom_vline(xintercept = 2014) +
+  labs(title = "% HealthCare Worker by Expansion Status", x = "Year", y="% HealthCare Worker")
+```
+
+# Regression Analysis
+
+```{r no fixed effects, message=F}
+lm.sick <- lm(sick_days ~ (post*aca), data = aca_data)
+lm.uninsurance <- lm(unins ~ (post*aca), data = aca_data)
+lm.trips <- lm(trips ~ (post*aca), data = aca_data)
+lm.hc <- lm(hcWorker ~ (post*aca), data = aca_data)
+
+modelsummary(list(
+  "Sick Days" = lm.sick,
+  "Uninsurance" = lm.uninsurance,
+  "Doctor Trips" = lm.trips,
+  "HealthCare Worker" = lm.hc
+),
+title = "No Fixed Effects",
+stars = T,
+gof_omit = "AIC|BIC|Log.Lik.",
+coef_rename = c("post" = "Post", "aca1" = "ACA", "post × aca1" = "Post:ACA"))
+```
+
+```{r fixed effects, message=F}
+fe.sick <- feols(sick_days ~ (post*aca) | FIPS + year,data = aca_data)
+fe.uninsurance <- feols(unins ~ (post*aca) | FIPS + year, data = aca_data)
+fe.trips <- feols(trips ~ (post*aca) | FIPS + year, data = aca_data)
+fe.hc <- feols(hcWorker ~ (post*aca) | FIPS + year, data = aca_data)
+
+
+modelsummary(list(
+  "Sick Days" = fe.sick,
+  "Uninsurance" = fe.uninsurance,
+  "Doctor Trips" = fe.trips,
+  "HealthCare Worker" = fe.hc
+),
+title = "Fixed Effects",
+stars=T,
+gof_omit = "R2 Within|R2 Within Adj.|AIC|BIC|Std.Errors|FE: FIPS|FE: year",
+coef_rename = c("post:aca1" = "Post:ACA"))
+```

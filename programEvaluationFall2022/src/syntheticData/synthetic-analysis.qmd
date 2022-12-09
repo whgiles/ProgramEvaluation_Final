@@ -21,7 +21,7 @@ In this section, I create synthetic data. The linear relationships discussed in 
 
 ## Creating Fake Data
 
-Creating synthetic data requires the selection of many hyper-parameters. For this process, a sample of 300,000 is selected, an adequate sample size to represent the united states. Next, the distribution of the variables is selected. It is assumed in this analysis that the data is pooled-cross-sectional and was the collection process is stratified random sampling. For this reason, `year` and `FIPS` have a uniform distribution. `years` is limited to a range of 2010 to 2020 because the ACA expansion did not start until 2014. Next the base values ($\alpha$) are selected. `sick_days` is a truncated normal distribution ($\mu$ = 7, $\sigma$ = 5) with a lower bound at 0. This lower bound is selected because negative values are impossible. `unins` ($\phi = .5$) and `hsWorker` ($\phi = .1$) both have Bernoulli distributions because they are binary. There is little intuitive information in the posterior of `unins`, so the probability parameter is .5, whereas a bit more is known about `hsWorker`. Finally, `trips` is given a beta distribution because it is likely skewed to the right. It is rescaled (using `rescale()`) between -2 and 30. I allowed negative numbers here to avoid truncation errors when I add in my linear relationships. \[side note I account for truncation here and not with `sick_days` just for my learning\]
+Creating synthetic data requires the selection of many hyper-parameters. For this process, a sample of 300,000 is selected, an adequate sample size to represent the united states. Next, the distribution of the variables is selected. It is assumed in this analysis that the data is pooled-cross-sectional and was the collection process is stratified random sampling. For this reason, `year` and `FIPS` have a uniform distribution. `years` is limited to a range of 2005 to 2020 because the ACA expansion did not start until 2014. Next the base values ($\alpha$) are selected. `sick_days` is a truncated normal distribution ($\mu$ = 7, $\sigma$ = 5) with a lower bound at 0. This lower bound is selected because negative values are impossible. `unins` ($\phi = .5$) and `hsWorker` ($\phi = .1$) both have Bernoulli distributions because they are binary. There is little intuitive information in the posterior of `unins`, so the probability parameter is .5, whereas a bit more is known about `hsWorker`. Finally, `trips` is given a beta distribution because it is likely skewed to the right. It is rescaled (using `rescale()`) between -2 and 30. I allowed negative numbers here to avoid truncation errors when I add in my linear relationships. \[side note I account for truncation here and not with `sick_days` just for my learning\]
 
 ```{r, message=F}
 library(broom)
@@ -41,7 +41,7 @@ options(dplyr.summarise.inform = FALSE)
 
 ```{r, message=F}
 n <- 300000
-years <- c(2010,2020)
+years <- c(2005,2020)
 set.seed(1234)
 aca_data <- tibble(
   id = 1:n,
@@ -60,9 +60,9 @@ aca_data <- tibble(
 ) 
 ```
 
-Next, I derive'aca` and `post`. As seen in equation 1, `aca` is an indicator variable equal to one if the state is enrolled in the ACA Medicaid Expansion (this is time-invariant). `post` is another indicator variable equal to 1 if the observation was recorded after 2014.
+Next, I derive `aca` and `post`. As seen in equation 1, `aca` is an indicator variable equal to one if the state is enrolled in the ACA Medicaid Expansion (this is time-invariant). `post` is another indicator variable equal to 1 if the observation was recorded after 2014.
 
-In addition to these variable state ($\sigma_s$) and year ($\gamma_t$) fixed effects are made. To create state effects, the `FIPS` column is spread into a one-hot vector for each observation and parsed as a matrix. Then the dot product is found between the one-hot matrix (i x state) and a coefficient vector (State x 1). This is redone for each dependent variable in the analysis. The year fixed effects are made by creating a `t` variable equal to `year` minus 2010. Times series drift is created by multiplying `t` by the coefficient selected for each dependent variable. In the "Adding Variable Relationship" section, you will see how these fixed effects add to the dependent variable.
+In addition to these variable state ($\sigma_s$) and year ($\gamma$) fixed effects are made. To create state effects, the `FIPS` column is spread into a one-hot vector for each observation and parsed as a matrix. Then the dot product is found between the one-hot matrix (i x state) and a coefficient vector (State x 1). This is redone for each dependent variable in the analysis. The year fixed effects are made by creating a `t` variable equal to `year` minus 2005. Times series drift is created by multiplying `t` by the coefficient selected for each dependent variable. In the "Adding Variable Relationship" section, you will see how these fixed effects add to the dependent variable.
 
 let S be the set of states the expanded medicaid, and T be a set of years after 2016\
 $$  
@@ -97,7 +97,7 @@ aca_data <- aca_data %>%
 ```{r setting up for fixed effects, message=F}
 aca_data <- aca_data %>%
   # for drift
-  mutate(t = year - 2010)
+  mutate(t = year - years[1])
   
 # for state fixed effects
 state.one_hot <- select(aca_data,id, FIPS) %>%

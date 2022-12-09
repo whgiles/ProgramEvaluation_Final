@@ -1,72 +1,25 @@
 ---
-title: "Threats to Validity"
+title: "Data and Methods"
 ---
 
+# Identification Strategy
 
-**Feel free to remove any/all of the placeholder text and instructions here!**
+The difference-and-difference (DD) model is a quasi-experimental design to measure a given treatment's effects by assigning certain observations to a control group and others to the treatment group. The observation assignment is based on their self-selected enrollment into the treatment. This design can be advantageous when evaluating state-level policy effects. States that opt into a policy are used as the treatment group, and states that opt out of the policy are the control group.
 
-# Conditional cash transfers and education in Mexico
+$$  
+Y_i = \beta_0 + \beta_1 Post_t + \beta_2 ACA_s + \beta_3 Post_t*ACA_s + \epsilon_{i,t}
+$$ {#eq-1} $$  
+Y_i = \beta_0 + \beta_1 Post_t + \beta_2 ACA_s + \beta_3 Post_t*ACA_s + \sigma_s + \gamma_t + \epsilon_{i,t}
+$$ {#eq-2}
 
-## Internal validity
+Equation 1 shows how the DD will be used to study the effects of Medicaid ACA expansion on $Y$, a vector of dependent variables. The dependent variables of interest are uninsurance, number of trips to the doctor, healthcare worker, and number of sick days. In this case, the treatment group, represented by $ACA$, are states enrolled in the program. This variable is time-invariant, meaning observations from the same state in any year will have the same $ACA$ value. $Post$ is a dummy variable indicating an observation was conducted before the treatment (2014). The interaction term, $Post * ACA$, has a $\beta_1$ relationship with $Y$, which is interpreted as the causal effect of Medicaid expansion.
 
-1.  **Selection**: 1
-2.  **Attrition**: 0
-3.  **Maturation**: 1
-4.  **Secular trends**: 1
-5.  **Seasonality**: NA
-6.  **Testing**: NA
-7.  **Regression to the mean**: 1
-8.  **Measurement error**: 0
-9.  **Time frame of study**: 0
-10. **Hawthorne effects**: 0
-11. **John Henry effects**: 0
-12. **Spillovers**: 1
-13. **Intervening events**: 0
+In addition to equation 1, the model from equation 2 is also used. This model uses the traditional DD structure above but adds two-way fixed effects for state ($\sigma_s$) and year ($\gamma_t$). These control for heterogeneous characteristics across state (i.e., political climates), and across times (i.e., market volatility). One slight drawback of this model is that $Post$ and $Medicaid$ will be co-linear with the fixed effects. This will make $\beta_1$ and $\beta_2$ appear less significant.
 
-Final score: 5
+One fundamental assumption for DD is that the treatment and control trends are parallel. This is essential because the treatment and control groups should be similar in the absence of treatment (prior to 2014). Visuals are the best way to account for this. The "Synthetic Data" section shows a trend graph for each dependent variable.
 
-## General Summary:
+# Data
 
-Schultz Study was designed to measure the Progresa program's effect on underprivileged children's school enrollment and inequality. The study used a difference-and-difference model to estimate the treatment effect. The selection process randomly finds economically and geographically disadvantaged families from Mexico's lower-class population. The participants (treatment group) are offered education subsidies for children in grades 1st through 9th. The enrollment status is then compared to non-participants (control) in the lower class population. The study results found that Progresa students have a higher trending enrollment rate than the control and a significantly higher enrollment rate in the 6th grade. Additionally, the program decrease inequality.
+This analysis will use pooled-cross-sectional survey data taken at the individual level between 2005 and 2020. From this data, feasibility measurement will proxy the healthcare access attributes (see *Outcomes ad Causation*). Each observation should include the number of sick days in the given year, a dummy variable indicating their health insurance status, the number of trips to the doctor in a given year, and a dummy variable indicating whether or not the individual works within the healthcare sector.
 
-## External validity
-
-There are no blatant offenses to external validity in this study. However, if the intended use of this study is for America or other countries besides Mexico, then it may not generalize well. Mexico's noneducational rate is significantly higher than the U.S., so that the study may have less impact on more modern countries. Other differences, such as existing policies between countries, can also affect external validity. Additionally, the study uses survey data for the control group, which may not accurately represent the population.
-
-## Construct validity
-
-The study uses the difference-and-difference model combined with random selection, which should eliminate back door bias. The control group is in a different area than the participants, so the spillover effect should be minimal. However, the study does mention that the enrollment variable is subject to endogeneity. Child labor supply is an unobserved factor that is correlated with school enrollment. If child labor is left in the error term, the model could be biased. The study uses an IV to reduce bias, but admittedly bias is hard to diminish completely. Another threat to internal validity is that the Hawthorne Progresa participants are incentivized to produce good results for the study, so they keep getting subsidies.
-
-# *Sesame Street* and school readiness
-
-## Internal validity
-
-1.  **Selection**: 1
-2.  **Attrition**:
-3.  **Maturation**: 1
-4.  **Secular trends**: 1\
-5.  **Seasonality**:\
-6.  **Testing**:
-7.  **Regression to the mean**:
-8.  **Measurement error**: 0
-9.  **Time frame of study**: 1
-10. **Hawthorne effects**: 1
-11. **John Henry effects**: 1
-12. **Spillovers**: 0
-13. **Intervening events**: 1
-
-Final score: 7
-
-## General Summary:
-
-This study examines the effect of *Sesame Street* on educational outcomes. In 1969 *Sesame Street* became the first large-scale educational T.V show broadcast to the country. However, households that were out of range of broadcasting towers could not view it. The present student exploits this by creating an interaction variable for children within a broadcasting area who were in preschool during *Sesame Street's* premiere. While controlling for time variants, the study found that *Sesame Street* significantly increases educational advantage.
-
-## External validity
-
-The study mentions that the primary interaction variable does not measure the average treatment effect. Instead, it identifies the relationship between the intent-to-treat and education outcome. This measurement care can lead to bias in the model.
-
-## Construct validity
-
-This study accounted for several threats to construct validity. The analysis accounts for selection bias by arguing that broadcasting tower placement is unrelated to whether a child has access to *Sesame Street*. However, the study does not account for family mobility. Subjects that move out of a treatment county and into a control county or vice versa create bias in the model. Besides mobility, there may be inter-group mingling among children. This could create a spillover effect, in which treatment children influence control children's behavior.
-
-To account for variations in time, the study's model uses time-fixed-effects. However, the fixed effect may not fully account for policy changes. The study mentions that it uses a dummy variable for years after the Food Stamp Act of 1964 but makes no attempt to account for Medicaid in 1967.
+Additionally, observation will include the survey year and the individual's state of residence. The year and state variables will be used to derive the DD estimators.

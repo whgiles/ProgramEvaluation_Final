@@ -19,41 +19,63 @@ The results of the 1970s RAND health experiments suggest that as the price of he
 
 ## Inputs
 
--   [State Funding]{.underline}: Before the expansion states payed up to 50% of Medicare cost. Under ACA the federal government will pay 100% of the cost until 2016 and 90% after that.
--   [Federal Funding]{.underline}: The federal government will pay 100% of ACA costs until 2016, and 90% after that. Additionally the Government will provide \$11 Billion in funding to Federally Qualified Health Centers (FQHC).
--   [High Uninsurance Rate]{.underline}: The proportion of Americans without health insurance to with health insurance. Before 2014, uninsurance was at its highest (18 percent).
--   [High health insurance cost]{.underline}: Health Insurance cost has been increasing dramatically as Americans grow with age. The high cost is a motivator for the ACA expansion.
--   [State Politics]{.underline}: On average, democratic starts are more likely to enroll in the ACA expansion, and republican states are less likely.
--   [Supreme Count Decision]{.underline}: The Supreme court ruled that it is unconstitutional to make the ACA expansion mandatory for states, instead, states can voluntarily opt in.
+-   [State Funding]{.underline}: Before the expansion, states paid up to 50% of Medicare's cost. Under the ACA, the federal government will pay 100% of the cost until 2016 and 90% after that.
+
+-   [Federal Funding]{.underline}: The federal government will pay 100% of ACA costs until 2016 and 90% after that. Additionally, the Government will provide \$11 Billion in funding to Federally Qualified Health Centers (FQHC).
+
+-   [High Uninsurance Rate]{.underline}: The proportion of Americans without health insurance to those with health insurance. Before 2014, uninsurance was at its highest (18 percent).
+
+-   [High Health Insurance Cost]{.underline}: Health insurance has been increasing dramatically as Americans age. The high cost is a motivator for the ACA expansion.
+
+-   S[tate Politics]{.underline}: On average, democratic starts are likelier to enroll in the ACA expansion, and republican states are less likely.
+
+-   [Supreme Court Decision]{.underline}: The Supreme court ruled that making the ACA expansion mandatory for states is unconstitutional. Instead, states can voluntarily opt-in.
 
 ## Activities
 
--   [ACA Starts in 2014]{.underline}: The ACA was signed and put into partial effect by President Obama in 2010. In 2014 the ACA went into full effect.
--   [States Enroll in ACA:]{.underline} States can opt in or out of ACA expansion.
+-   [ACA Started in 2014]{.underline}: The ACA was signed and put into partial effect by President Obama in 2010. In 2014 the ACA went into full effect.
+
+-   [States Enroll in ACA]{.underline}: States can opt in or out of ACA expansion.
+
 -   [Increase in Medicaid Coverage]{.underline}: Under the ACA, all Americans below 138% FPL are allowed access to Medicaid.
+
 -   [Increase Private Coverage]{.underline}: The ACA lowers cost barriers for new and existing private health insurance holders.
+
 -   [Eliminate Preexisting Condition Exclusion]{.underline}: Private health insurance companies cannot decline individuals because of preexisting conditions.
--   I[ncrease Dependency Age]{.underline}: The ACA mandates that private insurance companies cannot drop dependents off of parents health insurance policies until age 26.
--   [Premium Tax Credits]{.underline}: Americans between 400% and 138% FPL, can receive premium tax credits to reduce private health insurance costs.
--   [Distribute Federal Funding to FQHCs]{.underline}: \$11 billion in federal funding is to be dispersed between FQHCs across expansion and non-expansion states.
+
+-   [Increase Dependency Age]{.underline}: The ACA mandates that private insurance companies cannot drop dependents off parents' health insurance policies until age 26.
+
+-   [Premium Tax Credits]{.underline}: Americans between 400% and 138% of FPL can receive premium tax credits to reduce private health insurance costs.
+
+-   [Distribute Federal Funding to FQHCs]{.underline}: \$11 billion in federal funding will be dispersed between FQHCs across expansion and non-expansion states.
 
 ## Outputs
 
--   [States Opt Out of ACA]{.underline}: States can chose to enroll in ACA expansion.
--   [States Enroll in ACA]{.underline}: States can choose not to enroll in ACA expansion.
--   [Non-expansion Healthcare Demand]{.underline}: A spillover effect from increase healthcare quantity demanded in expansion states will slightly increase quantity demanded in non-expansion states.
+-   [Number of States that Opt Out of ACA]{.underline}: States can choose to enroll in ACA expansion.
+
+-   [Number of States that Enroll in ACA]{.underline}: States can choose not to enroll in ACA expansion.
+
 -   [Coverage Access Increases in Expansion States]{.underline}: More low-income people have access to affordable healthcare insurance in expansion states.
--   [Patients Increase in Expansion States]{.underline}: Due to a relative decrease in healthcare cost, the number of patients will increase in expansion states.
--   [Better Medical Delivery methods]{.underline}: Federal Funding will initiate more medical research to develop better medical delivery methods.
+
+-   [Number of Patients Patients Increase in Expansion States]{.underline}: Due to a relative decrease in healthcare costs, the number of patients will increase in expansion states.
+
+-   [Number of Healthcare Firms the Receive Funding]{.underline}: Federal Funding will initiate more medical research to develop better medical delivery methods.
 
 ## Outcomes
 
 -   [Health Insurance Cost Decreases]{.underline}: The out-of-pocket costs Americans pay for healthcare will fall.
+
+-   [Non-expansion Healthcare Demand]{.underline}: A spillover effect from increased healthcare quantity demanded in expansion states will slightly increase the quantity demanded in non-expansion states.
+
 -   [Uninsurance Rate Decreases]{.underline}: The increase in health insurance availability will cause the number of uninsured people to fall.
--   [Healthcare Revenue Increases]{.underline}: From an increased demand in healthcare and an increase in federal funding, revenue will increase for healthcare companies.
+
+-   [Healthcare Revenue Increases]{.underline}: From an increased demand for healthcare and an increase in federal funding, revenue will increase for healthcare companies.
+
 -   [Healthcare Quality Increases]{.underline}: Additional funding and demand will boost the quality of healthcare.
+
 -   [Healthcare Supply Increase]{.underline}: As a result of excess demand, the supply of healthcare will increase.
--   [American Health Increases]{.underline}: More Americans have the means to receive healthcare including preventative treatment.
+
+-   [American Health Increases]{.underline}: More Americans have the means to receive healthcare, including preventative treatment.
 
 ## Diagram
 
