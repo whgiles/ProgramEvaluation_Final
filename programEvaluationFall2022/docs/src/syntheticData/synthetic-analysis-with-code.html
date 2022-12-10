@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Medicaid Final Project - Synthetic Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+<script src="../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Medicaid Final Project</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../../index.html" aria-current="page">Write-Up</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Synthetic Analysis</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">Introduction/Overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/theory-and-implementation.html" class="sidebar-item-text sidebar-link">Program Theory and Implementation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/outcome-and-causation.html" class="sidebar-item-text sidebar-link">Outcome and Causation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/writeup/data-and-methods.html" class="sidebar-item-text sidebar-link">Data and Methods</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/syntheticData/synthetic-analysis.html" class="sidebar-item-text sidebar-link">Synthetic Analysis</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../src/syntheticData/synthetic-analysis-with-code.html" class="sidebar-item-text sidebar-link active">Synthetic Analysis (with code)</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#creating-fake-data" id="toc-creating-fake-data" class="nav-link active" data-scroll-target="#creating-fake-data">Creating Fake Data</a></li>
+  <li><a href="#adding-variable-relationships" id="toc-adding-variable-relationships" class="nav-link" data-scroll-target="#adding-variable-relationships">Adding Variable Relationships</a>
+  <ul class="collapse">
+  <li><a href="#sick-days" id="toc-sick-days" class="nav-link" data-scroll-target="#sick-days">Sick Days</a></li>
+  <li><a href="#uninsurance" id="toc-uninsurance" class="nav-link" data-scroll-target="#uninsurance">Uninsurance</a></li>
+  <li><a href="#trips-to-doctor" id="toc-trips-to-doctor" class="nav-link" data-scroll-target="#trips-to-doctor">Trips to Doctor</a></li>
+  <li><a href="#health-care-worker" id="toc-health-care-worker" class="nav-link" data-scroll-target="#health-care-worker">Health Care Worker</a></li>
+  </ul></li>
+  <li><a href="#exploratory-anlaysis" id="toc-exploratory-anlaysis" class="nav-link" data-scroll-target="#exploratory-anlaysis">Exploratory Anlaysis</a>
+  <ul class="collapse">
+  <li><a href="#sick-days-1" id="toc-sick-days-1" class="nav-link" data-scroll-target="#sick-days-1">Sick Days</a></li>
+  <li><a href="#uninsurance-1" id="toc-uninsurance-1" class="nav-link" data-scroll-target="#uninsurance-1">Uninsurance</a></li>
+  <li><a href="#trips-to-doctor-1" id="toc-trips-to-doctor-1" class="nav-link" data-scroll-target="#trips-to-doctor-1">Trips to Doctor</a></li>
+  <li><a href="#health-care-worker-1" id="toc-health-care-worker-1" class="nav-link" data-scroll-target="#health-care-worker-1">Health Care Worker</a></li>
+  </ul></li>
+  <li><a href="#regression-analysis" id="toc-regression-analysis" class="nav-link" data-scroll-target="#regression-analysis">Regression Analysis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Synthetic Analysis</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>In this section, I create synthetic data. The linear relationships discussed in this section are not empirical. Instead, they are based on economic intuition. Building econometric models around synthetic data are essential because it reduces intentional/non-intensional p-hacking by setting up a pipeline for the data before actual data is explored. Since the model is pre-built, all the researchers must set <code>aca_data</code> equal to the real clean dataset, and the variables’ names should match (see bullet points below).</p>
+<ul>
+<li><p><code>year</code>: (numeric) the year observation was recorded. [i.e.&nbsp;2012]</p></li>
+<li><p><code>FIPS</code>: (numeric) the FIPS code corresponding to U.S. state [i.e.&nbsp;34]</p></li>
+<li><p><code>sick_days</code>: (numeric) the number of sick days the given individual had in year t</p></li>
+<li><p><code>unins</code>: (numeric) a binary variable equal to one if an individual does not have health insurance</p></li>
+<li><p><code>trips</code>: (numeric) number of trips to the doctor for a given individual in the year t</p></li>
+<li><p><code>hcWorker</code>: (numeric) binary variable equal to one if the given individual works in healthcare</p></li>
+</ul>
+<section id="creating-fake-data" class="level2">
+<h2 class="anchored" data-anchor-id="creating-fake-data">Creating Fake Data</h2>
+<p>Creating synthetic data requires the selection of many hyper-parameters. For this process, a sample of 300,000 is selected, an adequate sample size to represent the united states. Next, the distribution of the variables is selected. It is assumed in this analysis that the data is pooled-cross-sectional and was the collection process is stratified random sampling. For this reason, <code>year</code> and <code>FIPS</code> have a uniform distribution. <code>years</code> is limited to a range of 2005 to 2020 because the ACA expansion did not start until 2014. Next the base values (<span class="math inline">\(\alpha\)</span>) are selected. <code>sick_days</code> is a truncated normal distribution (<span class="math inline">\(\mu\)</span> = 7, <span class="math inline">\(\sigma\)</span> = 5) with a lower bound at 0. This lower bound is selected because negative values are impossible. <code>unins</code> (<span class="math inline">\(\phi = .5\)</span>) and <code>hsWorker</code> (<span class="math inline">\(\phi = .1\)</span>) both have Bernoulli distributions because they are binary. There is little intuitive information in the posterior of <code>unins</code>, so the probability parameter is .5, whereas a bit more is known about <code>hsWorker</code>. Finally, <code>trips</code> is given a beta distribution because it is likely skewed to the right. It is rescaled (using <code>rescale()</code>) between -2 and 30. I allowed negative numbers here to avoid truncation errors when I add in my linear relationships. [side note I account for truncation here and not with <code>sick_days</code> just for my learning]</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sn)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rlab)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(truncnorm)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fixest)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">dplyr.summarise.inform =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">300000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2005</span>,<span class="dv">2020</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span>n,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">year =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> years[<span class="dv">1</span>], <span class="at">max =</span> years[<span class="dv">2</span>]) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">0</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">t =</span> year <span class="sc">-</span> <span class="dv">2010</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">FIPS =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="dv">1</span>, <span class="at">max =</span> <span class="dv">56</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">0</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">sick_days_base =</span> <span class="fu">rtruncnorm</span>(n, <span class="at">a =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="cn">Inf</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">5</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">round</span>(<span class="dv">0</span>), <span class="co"># median should be around 7</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">unins_base =</span> <span class="fu">rbern</span>(n, .<span class="dv">5</span>), <span class="co"># Bernoulli Distribution in R</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">trips_base =</span> <span class="fu">rbeta</span>(n, <span class="at">shape1 =</span> <span class="dv">2</span>, <span class="at">shape2 =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rescale</span>(<span class="at">to=</span><span class="fu">c</span>(<span class="sc">-</span><span class="dv">2</span>,<span class="dv">30</span>)), <span class="co"># testing theory that base data should not be truncated at 0</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">hcWorker_base =</span> <span class="fu">rbern</span>(n, <span class="at">prob =</span> .<span class="dv">1</span>) <span class="co"># Does this have to be .5?</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, I derive <code>aca</code> and <code>post</code>. As seen in equation 1, <code>aca</code> is an indicator variable equal to one if the state is enrolled in the ACA Medicaid Expansion (this is time-invariant). <code>post</code> is another indicator variable equal to 1 if the observation was recorded after 2014.</p>
+<p>In addition to these variable state (<span class="math inline">\(\sigma_s\)</span>) and year (<span class="math inline">\(\gamma\)</span>) fixed effects are made. To create state effects, the <code>FIPS</code> column is spread into a one-hot vector for each observation and parsed as a matrix. Then the dot product is found between the one-hot matrix (i x state) and a coefficient vector (State x 1). This is redone for each dependent variable in the analysis. The year fixed effects are made by creating a <code>t</code> variable equal to <code>year</code> minus 2005. Times series drift is created by multiplying <code>t</code> by the coefficient selected for each dependent variable. In the “Adding Variable Relationship” section, you will see how these fixed effects add to the dependent variable.</p>
+<p>let S be the set of states the expanded medicaid, and T be a set of years after 2016<br>
+<span id="eq-1"><span class="math display">\[  
+ACA(State) =
+\begin{cases}
+1, \space state \in S \\
+  0, \space state \notin S
+\end{cases}
+\tag{1}\]</span></span><br>
+<span id="eq-2"><span class="math display">\[  
+Post(Year) =
+\begin{cases}
+1, \space Year \in T \\
+  0, \space Year \notin T
+\end{cases}
+\tag{2}\]</span></span><br>
+<span id="eq-3"><span class="math display">\[    
+Y_i = \beta_0 + \beta_1 Post_t + \beta_2 ACA_s + \beta_3 Post_t*ACA_s + \sigma_s + \gamma t + \epsilon_{i,t}
+\tag{3}\]</span></span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>expansion_states <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">15</span>,<span class="dv">17</span>,<span class="dv">19</span>,<span class="dv">21</span>,<span class="dv">24</span>,<span class="dv">25</span>,<span class="dv">26</span>,<span class="dv">27</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                     <span class="dv">32</span>,<span class="dv">33</span>,<span class="dv">34</span>,<span class="dv">35</span>,<span class="dv">36</span>,<span class="dv">38</span>,<span class="dv">39</span>,<span class="dv">41</span>,<span class="dv">44</span>,<span class="dv">50</span>,<span class="dv">53</span>,<span class="dv">54</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>not_states <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">14</span>,<span class="dv">43</span>,<span class="dv">52</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>FIPS <span class="sc">%in%</span> not_states) <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">aca =</span> <span class="fu">as.factor</span>(<span class="fu">as.numeric</span>(FIPS <span class="sc">%in%</span> expansion_states))) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">post =</span> <span class="fu">ifelse</span>(year <span class="sc">&gt;=</span> <span class="dv">2014</span>,<span class="dv">1</span>,<span class="dv">0</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># for drift</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">t =</span> year <span class="sc">-</span> years[<span class="dv">1</span>])</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for state fixed effects</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>state.one_hot <span class="ot">&lt;-</span> <span class="fu">select</span>(aca_data,id, FIPS) <span class="sc">%&gt;%</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">value =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(FIPS, value, <span class="at">fill =</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="adding-variable-relationships" class="level2">
+<h2 class="anchored" data-anchor-id="adding-variable-relationships">Adding Variable Relationships</h2>
+<section id="sick-days" class="level3">
+<h3 class="anchored" data-anchor-id="sick-days">Sick Days</h3>
+<p><span class="math display">\[
+SickDays_i = \alpha_1 + .01(Post_t) + .05 (ACA_s) -.2 (Post_t*ACA_s) + \sigma_s + .03 (t) + \epsilon_{i,t}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">nrow</span>(aca_data)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">01</span>, <span class="at">sd =</span> .<span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_2 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">05</span>, <span class="at">sd =</span> .<span class="dv">04</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_3 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span>.<span class="dv">2</span>, <span class="at">sd =</span> .<span class="dv">0001</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sick_days =</span> sick_days_base <span class="sc">+</span> beta_1<span class="sc">*</span>post <span class="sc">+</span> beta_2<span class="sc">*</span><span class="fu">as.numeric</span>(aca) <span class="sc">+</span> beta_3 <span class="sc">*</span> <span class="fu">as.numeric</span>(post)<span class="sc">*</span><span class="fu">as.numeric</span>(aca)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>states_n <span class="ot">&lt;-</span> <span class="fu">length</span>(<span class="fu">unique</span>(aca_data<span class="sc">$</span>FIPS))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>state_effects <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(state.one_hot) <span class="sc">%*%</span> <span class="fu">runif</span>(states_n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">max =</span> <span class="dv">2</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>sick_days <span class="ot">&lt;-</span> aca_data<span class="sc">$</span>sick_days <span class="sc">+</span> state_effects <span class="sc">+</span> .<span class="dv">03</span> <span class="sc">*</span> aca_data<span class="sc">$</span>t</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="uninsurance" class="level3">
+<h3 class="anchored" data-anchor-id="uninsurance">Uninsurance</h3>
+<p><span class="math display">\[  
+Uninsurance_i = \alpha_2  -.1(Post_t) + .0005 (ACA_s) -.3(Post_t*ACA_s) + \sigma_s -.03 (t) + \epsilon_{i,t}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span>.<span class="dv">1</span>, <span class="at">sd =</span> .<span class="dv">3</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_2 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">0005</span>, <span class="at">sd =</span> .<span class="dv">04</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_3 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span>.<span class="dv">3</span>, <span class="at">sd =</span> .<span class="dv">0001</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">unins =</span> unins_base <span class="sc">+</span> beta_1<span class="sc">*</span>post <span class="sc">+</span> beta_2<span class="sc">*</span><span class="fu">as.numeric</span>(aca) <span class="sc">+</span> beta_3 <span class="sc">*</span> <span class="fu">as.numeric</span>(post)<span class="sc">*</span><span class="fu">as.numeric</span>(aca)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>state_effects <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(state.one_hot) <span class="sc">%*%</span> <span class="fu">runif</span>(states_n, <span class="at">min =</span> <span class="sc">-</span>.<span class="dv">02</span>, <span class="at">max =</span> .<span class="dv">02</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>unins <span class="ot">&lt;-</span> aca_data<span class="sc">$</span>unins <span class="sc">+</span> state_effects <span class="sc">+</span> <span class="sc">-</span>.<span class="dv">03</span> <span class="sc">*</span> aca_data<span class="sc">$</span>t</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>unins <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(aca_data<span class="sc">$</span>unins <span class="sc">&gt;</span> .<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="trips-to-doctor" class="level3">
+<h3 class="anchored" data-anchor-id="trips-to-doctor">Trips to Doctor</h3>
+<p><span class="math display">\[  
+DoctorTrips_i = \alpha_3  -2(Post_t) +  .001(ACA_s) +3(Post_t*ACA_s) + \sigma_s + .4 (t) + \epsilon_{i,t}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_2 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">001</span>, <span class="at">sd =</span> <span class="dv">4</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_3 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="dv">3</span>, <span class="at">sd =</span> .<span class="dv">0001</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trips =</span> trips_base <span class="sc">+</span> beta_1<span class="sc">*</span>post <span class="sc">+</span> beta_2<span class="sc">*</span><span class="fu">as.numeric</span>(aca) <span class="sc">+</span> beta_3 <span class="sc">*</span> <span class="fu">as.numeric</span>(post)<span class="sc">*</span><span class="fu">as.numeric</span>(aca)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>state_effects <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(state.one_hot) <span class="sc">%*%</span> <span class="fu">runif</span>(states_n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">max =</span><span class="dv">5</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>trips <span class="ot">&lt;-</span> aca_data<span class="sc">$</span>trips <span class="sc">+</span> state_effects <span class="sc">+</span> .<span class="dv">4</span> <span class="sc">*</span> aca_data<span class="sc">$</span>t</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>trips <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(aca_data<span class="sc">$</span>trips <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, aca_data<span class="sc">$</span>trips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="health-care-worker" class="level3">
+<h3 class="anchored" data-anchor-id="health-care-worker">Health Care Worker</h3>
+<p><span class="math display">\[  
+HealthCareWorker_i = \alpha_4  -.01(Post_t) + .09 (ACA_s) -.05(Post_t*ACA_s) + \sigma_s + .002 (t) + \epsilon_{i,t}
+\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>aca_data <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span>.<span class="dv">01</span>, <span class="at">sd =</span> .<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_2 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">09</span>, <span class="at">sd =</span> .<span class="dv">004</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">beta_3 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> .<span class="dv">05</span>, <span class="at">sd =</span> .<span class="dv">0001</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hcWorker =</span> hcWorker_base <span class="sc">+</span> beta_1<span class="sc">*</span>post <span class="sc">+</span> beta_2<span class="sc">*</span><span class="fu">as.numeric</span>(aca) <span class="sc">+</span> beta_3 <span class="sc">*</span> <span class="fu">as.numeric</span>(post)<span class="sc">*</span><span class="fu">as.numeric</span>(aca)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hcWorker =</span> <span class="fu">ifelse</span>(hcWorker <span class="sc">&gt;</span> .<span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>state_effects <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(state.one_hot) <span class="sc">%*%</span> <span class="fu">runif</span>(states_n, <span class="at">min =</span> <span class="sc">-</span>.<span class="dv">02</span>, <span class="at">max =</span>.<span class="dv">05</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>hcWorker <span class="ot">&lt;-</span> aca_data<span class="sc">$</span>hcWorker <span class="sc">+</span> state_effects <span class="sc">+</span> .<span class="dv">002</span> <span class="sc">*</span> aca_data<span class="sc">$</span>t</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>aca_data<span class="sc">$</span>hcWorker <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(aca_data<span class="sc">$</span>hcWorker <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="dv">0</span>, aca_data<span class="sc">$</span>hcWorker)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exploratory-anlaysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-anlaysis">Exploratory Anlaysis</h2>
+<p>In this section, the variable relationships are explored. Since this is synthetic data, the authenticity of the intuitive relationship is in question. However, when real data is used, these graphs can be interpreted. For each variable, a time plot differentiated by treatment group is examined. This plot is essential when analyzing parallel trends for difference-and-difference analysis.</p>
+<section id="sick-days-1" class="level3">
+<h3 class="anchored" data-anchor-id="sick-days-1">Sick Days</h3>
+<p>The distribution of <code>sick_days</code> is skewed right with a mean of 9 days per year.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aca_data) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> sick_days), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Sick Days Distribution"</span>, <span class="at">x =</span> <span class="st">"Sick Days"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The data below shows that both groups are gradually drifting upwards. The treatment group experienced a sharp drop in 2014 and then resumed its slow upwards drift.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>parallel.sickdays <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, aca) <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_sick =</span> <span class="fu">mean</span>(sick_days))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(parallel.sickdays, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>avg_sick, <span class="at">color =</span> aca)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2014</span>) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Sick Days by Expansion Status"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"Average Sick Days"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="uninsurance-1" class="level3">
+<h3 class="anchored" data-anchor-id="uninsurance-1">Uninsurance</h3>
+<p>The treatment and control uninsurance rates are relatively similar in the pretreatment period. After the treatment, they both experience a radical decrease in uninsurance rates. However, the treatment group decreased more.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>parallel.unins <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, aca) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_unins =</span> <span class="fu">mean</span>(unins))</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(parallel.unins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>avg_unins, <span class="at">color =</span> aca)) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2014</span>) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Uninsurance Rate by Expansion Status"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"Uninsurance Rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="trips-to-doctor-1" class="level3">
+<h3 class="anchored" data-anchor-id="trips-to-doctor-1">Trips to Doctor</h3>
+<p>The distribution of doctor trips has a larger cut off at 0. This is commonly seen in truncated data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(aca_data) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> trips), <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">colour =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"grey"</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Doctor Trips Distribution"</span>, <span class="at">x =</span> <span class="st">"Trips"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>From the trends seen below, the treatment and control groups are similar in the pretreatment period until a significant increase in the treatment group after the treatment period. There also seems to be a significant positive drift in both groups</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>parallel.unins <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, aca) <span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_trips =</span> <span class="fu">mean</span>(trips))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(parallel.unins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>avg_trips, <span class="at">color =</span> aca)) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2014</span>) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Average Doctor Trips by Expansion Status"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"Average Trips"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="health-care-worker-1" class="level3">
+<h3 class="anchored" data-anchor-id="health-care-worker-1">Health Care Worker</h3>
+<p>The percentage of healthcare workers is similar between the treatment and control groups during the pretreatment period. After the treatment, there is a significant increase in the number of healthcare workers in the treatment group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>parallel.unins <span class="ot">&lt;-</span> aca_data <span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year, aca) <span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_hc =</span> <span class="fu">mean</span>(hcWorker))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(parallel.unins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>avg_hc, <span class="at">color =</span> aca)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">2014</span>) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"% HealthCare Worker by Expansion Status"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y=</span><span class="st">"% HealthCare Worker"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="synthetic-analysis-with-code_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="regression-analysis" class="level1">
+<h1>Regression Analysis</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>lm.sick <span class="ot">&lt;-</span> <span class="fu">lm</span>(sick_days <span class="sc">~</span> (post<span class="sc">*</span>aca), <span class="at">data =</span> aca_data)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>lm.uninsurance <span class="ot">&lt;-</span> <span class="fu">lm</span>(unins <span class="sc">~</span> (post<span class="sc">*</span>aca), <span class="at">data =</span> aca_data)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>lm.trips <span class="ot">&lt;-</span> <span class="fu">lm</span>(trips <span class="sc">~</span> (post<span class="sc">*</span>aca), <span class="at">data =</span> aca_data)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>lm.hc <span class="ot">&lt;-</span> <span class="fu">lm</span>(hcWorker <span class="sc">~</span> (post<span class="sc">*</span>aca), <span class="at">data =</span> aca_data)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Sick Days"</span> <span class="ot">=</span> lm.sick,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Uninsurance"</span> <span class="ot">=</span> lm.uninsurance,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Doctor Trips"</span> <span class="ot">=</span> lm.trips,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"HealthCare Worker"</span> <span class="ot">=</span> lm.hc</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"No Fixed Effects"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="at">stars =</span> T,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="at">gof_omit =</span> <span class="st">"AIC|BIC|Log.Lik."</span>,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="at">coef_rename =</span> <span class="fu">c</span>(<span class="st">"post"</span> <span class="ot">=</span> <span class="st">"Post"</span>, <span class="st">"aca1"</span> <span class="ot">=</span> <span class="st">"ACA"</span>, <span class="st">"post × aca1"</span> <span class="ot">=</span> <span class="st">"Post:ACA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
+<caption>No Fixed Effects</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Sick Days </th>
+   <th style="text-align:center;"> Uninsurance </th>
+   <th style="text-align:center;"> Doctor Trips </th>
+   <th style="text-align:center;"> HealthCare Worker </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> (Intercept) </td>
+   <td style="text-align:center;"> 8.085*** </td>
+   <td style="text-align:center;"> 0.501*** </td>
+   <td style="text-align:center;"> 8.007*** </td>
+   <td style="text-align:center;"> 0.123*** </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.016) </td>
+   <td style="text-align:center;"> (0.001) </td>
+   <td style="text-align:center;"> (0.026) </td>
+   <td style="text-align:center;"> (0.001) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Post </td>
+   <td style="text-align:center;"> 0.025 </td>
+   <td style="text-align:center;"> −0.396*** </td>
+   <td style="text-align:center;"> 3.847*** </td>
+   <td style="text-align:center;"> 0.049*** </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.025) </td>
+   <td style="text-align:center;"> (0.002) </td>
+   <td style="text-align:center;"> (0.040) </td>
+   <td style="text-align:center;"> (0.002) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> ACA </td>
+   <td style="text-align:center;"> −0.376*** </td>
+   <td style="text-align:center;"> −0.002 </td>
+   <td style="text-align:center;"> 0.190*** </td>
+   <td style="text-align:center;"> −0.005** </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;">  </td>
+   <td style="text-align:center;"> (0.023) </td>
+   <td style="text-align:center;"> (0.002) </td>
+   <td style="text-align:center;"> (0.036) </td>
+   <td style="text-align:center;"> (0.002) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Post:ACA </td>
+   <td style="text-align:center;"> −0.243*** </td>
+   <td style="text-align:center;"> −0.083*** </td>
+   <td style="text-align:center;"> 2.242*** </td>
+   <td style="text-align:center;"> 0.077*** </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.034) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.003) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.055) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.003) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.227 </td>
+   <td style="text-align:center;"> 0.117 </td>
+   <td style="text-align:center;"> 0.022 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> 0.003 </td>
+   <td style="text-align:center;"> 0.227 </td>
+   <td style="text-align:center;"> 0.117 </td>
+   <td style="text-align:center;"> 0.022 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RMSE </td>
+   <td style="text-align:center;"> 4.47 </td>
+   <td style="text-align:center;"> 0.41 </td>
+   <td style="text-align:center;"> 7.18 </td>
+   <td style="text-align:center;"> 0.34 </td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<sup></sup> + p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+</table>
+
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fe.sick <span class="ot">&lt;-</span> <span class="fu">feols</span>(sick_days <span class="sc">~</span> (post<span class="sc">*</span>aca) <span class="sc">|</span> FIPS <span class="sc">+</span> year,<span class="at">data =</span> aca_data)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>fe.uninsurance <span class="ot">&lt;-</span> <span class="fu">feols</span>(unins <span class="sc">~</span> (post<span class="sc">*</span>aca) <span class="sc">|</span> FIPS <span class="sc">+</span> year, <span class="at">data =</span> aca_data)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>fe.trips <span class="ot">&lt;-</span> <span class="fu">feols</span>(trips <span class="sc">~</span> (post<span class="sc">*</span>aca) <span class="sc">|</span> FIPS <span class="sc">+</span> year, <span class="at">data =</span> aca_data)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>fe.hc <span class="ot">&lt;-</span> <span class="fu">feols</span>(hcWorker <span class="sc">~</span> (post<span class="sc">*</span>aca) <span class="sc">|</span> FIPS <span class="sc">+</span> year, <span class="at">data =</span> aca_data)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">modelsummary</span>(<span class="fu">list</span>(</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Sick Days"</span> <span class="ot">=</span> fe.sick,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Uninsurance"</span> <span class="ot">=</span> fe.uninsurance,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Doctor Trips"</span> <span class="ot">=</span> fe.trips,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"HealthCare Worker"</span> <span class="ot">=</span> fe.hc</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>),</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="at">title =</span> <span class="st">"Fixed Effects"</span>,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="at">stars=</span>T,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="at">gof_omit =</span> <span class="st">"R2 Within|R2 Within Adj.|AIC|BIC|Std.Errors|FE: FIPS|FE: year"</span>,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="at">coef_rename =</span> <span class="fu">c</span>(<span class="st">"post:aca1"</span> <span class="ot">=</span> <span class="st">"Post:ACA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<table style="NAborder-bottom: 0; width: auto !important; margin-left: auto; margin-right: auto;" class="table">
+<caption>Fixed Effects</caption>
+ <thead>
+  <tr>
+   <th style="text-align:left;">   </th>
+   <th style="text-align:center;"> Sick Days </th>
+   <th style="text-align:center;"> Uninsurance </th>
+   <th style="text-align:center;"> Doctor Trips </th>
+   <th style="text-align:center;"> HealthCare Worker </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> Post:ACA </td>
+   <td style="text-align:center;"> −0.239*** </td>
+   <td style="text-align:center;"> −0.083*** </td>
+   <td style="text-align:center;"> 2.245*** </td>
+   <td style="text-align:center;"> 0.077*** </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;box-shadow: 0px 1px">  </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.031) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.003) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.086) </td>
+   <td style="text-align:center;box-shadow: 0px 1px"> (0.002) </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Num.Obs. </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+   <td style="text-align:center;"> 278083 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 </td>
+   <td style="text-align:center;"> 0.058 </td>
+   <td style="text-align:center;"> 0.228 </td>
+   <td style="text-align:center;"> 0.173 </td>
+   <td style="text-align:center;"> 0.026 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> R2 Adj. </td>
+   <td style="text-align:center;"> 0.058 </td>
+   <td style="text-align:center;"> 0.227 </td>
+   <td style="text-align:center;"> 0.173 </td>
+   <td style="text-align:center;"> 0.025 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RMSE </td>
+   <td style="text-align:center;"> 4.34 </td>
+   <td style="text-align:center;"> 0.41 </td>
+   <td style="text-align:center;"> 6.95 </td>
+   <td style="text-align:center;"> 0.34 </td>
+  </tr>
+</tbody>
+<tfoot><tr><td style="padding: 0; " colspan="100%">
+<sup></sup> + p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</td></tr></tfoot>
+</table>
+
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
