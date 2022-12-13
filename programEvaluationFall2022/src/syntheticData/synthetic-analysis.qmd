@@ -202,9 +202,11 @@ aca_data$hcWorker <- ifelse(aca_data$hcWorker < 0, 0, aca_data$hcWorker)
 ```
 
 ## Exploratory Anlaysis
+
 In this section, the variable relationships are explored. Since this is synthetic data, the authenticity of the intuitive relationship is in question. However, when real data is used, these graphs can be interpreted. For each variable, a time plot differentiated by treatment group is examined. This plot is essential when analyzing parallel trends for difference-and-difference analysis.
 
 ### Sick Days
+
 The distribution of `sick_days` is skewed right with a mean of 9 days per year.
 
 ```{r, message=F}
@@ -214,6 +216,7 @@ ggplot(aca_data) +
 ```
 
 The data below shows that both groups are gradually drifting upwards. The treatment group experienced a sharp drop in 2014 and then resumed its slow upwards drift.
+
 ```{r, message=F}
 parallel.sickdays <- aca_data %>%
   group_by(year, aca) %>%
@@ -243,7 +246,9 @@ ggplot(parallel.unins, mapping = aes(x=year, y=avg_unins, color = aca)) +
 ```
 
 ### Trips to Doctor
+
 The distribution of doctor trips has a larger cut off at 0. This is commonly seen in truncated data.
+
 ```{r, message=F}
 ggplot(aca_data) + 
   geom_histogram(aes(x = trips), bins = 30, colour = "black", fill = "grey") +
@@ -251,6 +256,7 @@ ggplot(aca_data) +
 ```
 
 From the trends seen below, the treatment and control groups are similar in the pretreatment period until a significant increase in the treatment group after the treatment period. There also seems to be a significant positive drift in both groups
+
 ```{r, message=F}
 parallel.unins <- aca_data %>%
   group_by(year, aca) %>%
@@ -266,6 +272,7 @@ ggplot(parallel.unins, mapping = aes(x=year, y=avg_trips, color = aca)) +
 ### Health Care Worker
 
 The percentage of healthcare workers is similar between the treatment and control groups during the pretreatment period. After the treatment, there is a significant increase in the number of healthcare workers in the treatment group.
+
 ```{r, message=F}
 parallel.unins <- aca_data %>%
   group_by(year, aca) %>%
@@ -316,3 +323,7 @@ stars=T,
 gof_omit = "R2 Within|R2 Within Adj.|AIC|BIC|Std.Errors|FE: FIPS|FE: year",
 coef_rename = c("post:aca1" = "Post:ACA"))
 ```
+
+<a href="../../data/ACA_synth_data.csv" download="ACA_synth_data.csv">
+<button class="btn btn-lg btn-primary" type="button">Download Data</button>
+</a>

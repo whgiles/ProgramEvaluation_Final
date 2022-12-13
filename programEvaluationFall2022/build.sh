@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ -e _site ]
+if [ -e ../docs ]
 then
-    echo "deleting _site folder";
-    rm -r _site/;
+    echo "deleting docs folder";
+    rm -r ../docs;
 fi
 
 echo "starting preview";

@@ -152,5 +152,12 @@
     "title": "Background",
     "section": "Diagram",
     "text": "Diagram\n\n\n\nLogic model"
+  },
+  {
+    "objectID": "src/writeup/conclusion.html",
+    "href": "src/writeup/conclusion.html",
+    "title": "Conclusion",
+    "section": "",
+    "text": "If found significant, the findings from this analysis will indicate that the Affordable Care Act (ACA) causes an increase/decrease in healthcare access. If the effect is insignificant, the ACA does not affect healthcare access as intended. Of course, the ACA is a large policy with many intended outputs/outcomes, so other analyses should be conducted."
   }
 ]

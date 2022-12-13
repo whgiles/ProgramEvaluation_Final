@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: ../docs
 
 website:
   title: "Medicaid Final Project"
@@ -8,6 +8,7 @@ website:
     left:
       - file: index.qmd
         text: "Write-Up"
+        
   sidebar: 
     - title: "Write-Up"
       contents: 
@@ -23,11 +24,13 @@ website:
           file: src/syntheticData/synthetic-analysis.qmd
         - text: "Synthetic Analysis (with code)"
           file: src/syntheticData/synthetic-analysis-with-code.qmd
+        - text: "Conclusion"
+          file: src/writeup/conclusion.qmd
 
         
 format:
   html:
-    theme: cosmo
+    theme: darkly
     css: styles.css
     toc: true
 

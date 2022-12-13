@@ -321,3 +321,16 @@ stars=T,
 gof_omit = "R2 Within|R2 Within Adj.|AIC|BIC|Std.Errors|FE: FIPS|FE: year",
 coef_rename = c("post:aca1" = "Post:ACA"))
 ```
+
+```{r}
+write.csv(aca_data, "../../data/ACA_synth_data.csv")
+```
+
+<a href="../../data/ACA_synth_data.csv" download="ACA_synth_data.csv">
+<button class="btn btn-lg btn-primary" type="button">Download Data</button>
+</a>
+
+
+
+
+
